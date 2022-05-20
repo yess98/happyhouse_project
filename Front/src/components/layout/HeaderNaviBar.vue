@@ -4,9 +4,10 @@
       <b-navbar-brand href="#">
         <router-link to="/">
           <img
-            src="@/assets/ssafy_logo.png"
+            src="@/assets/logo.png"
             class="d-inline-block align-middle"
-            width="100px"
+            width="60px"
+            height="60px"
             alt="ssafy"
           />
         </router-link>

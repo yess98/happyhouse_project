@@ -8,20 +8,15 @@
           bg-variant="muted"
           text-variant="dark"
           border-variant="dark"
+          class="jumbo"
         >
-          <template #header>SSAFY Home</template>
+          <template #header>Happy House</template>
 
           <template #lead>
-            슬기로운 싸피 생활 (:7기편) <br />
-            행운을 부르는 러~~~~키 Seven!!!!!
+            세상의 모든 부동산 정보를 집에서 편하게 알아보세요
           </template>
 
           <hr class="my-4" />
-
-          <p>Vue + Bootstrap활용.</p>
-          <p>Bootstrap-vue는 버전 <b>4.6.1</b>을 권장합니다.</p>
-          <p><b>BoardList.vue</b>를 바꿔가면서 테스트하세요.</p>
-          <p>Bootstrap의 <b>table</b> 사용법을 익히게됩니다.</p>
         </b-jumbotron>
       </b-col>
       <b-col></b-col>
@@ -43,8 +38,22 @@ export default {
   display: inline-block;
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0) 70%,
+    rgba(255, 255, 255, 0.5) 70%,
     rgba(72, 190, 233, 0.3) 30%
   );
+}
+.jumbo {
+  font-size: 50px;
+  font-weight: bold;
+  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+#header {
+  font-size: 50px;
+  font-weight: bold;
+}
+#lead {
+  font-size: 50px;
+  font-weight: bold;
 }
 </style>

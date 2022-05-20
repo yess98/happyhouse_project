@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="background">
     <navi-bar />
     <router-view />
   </div>
@@ -17,6 +17,16 @@ export default {
 </script>
 
 <style>
+.background {
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  background-image: url("./assets/city.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 a {
   text-decoration: none;
 }

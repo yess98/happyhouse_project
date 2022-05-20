@@ -2,6 +2,7 @@ package com.ssafy.vue.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.ssafy.vue.dto.MemberDto;
 import com.ssafy.vue.mapper.MemberMapper;
@@ -32,6 +33,18 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public int idCheck(String checkId) {
 		return memberMapper.idCheck(checkId);
+	}
+
+	@Override
+	@Transactional
+	public boolean deleteUser(String userid) {
+		return memberMapper.deleteUser(userid) == 1;
+	}
+
+	@Override
+	@Transactional
+	public boolean updateUser(MemberDto memberDto) {
+		return memberMapper.updateUser(memberDto) == 1;
 	}
 
 }

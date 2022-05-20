@@ -2,59 +2,69 @@
   <b-container class="bv-example-row mt-3">
     <b-row>
       <b-col>
-        <b-alert variant="secondary" show><h3>회원가입</h3></b-alert>
+        <!-- <b-alert variant="secondary" show><h3>회원가입</h3></b-alert> -->
       </b-col>
     </b-row>
     <b-row>
       <b-col></b-col>
       <b-col cols="8">
-        <b-card class="text-center mt-3" style="max-width: 40rem" align="left">
-          <b-form-group label="아이디:" label-for="userid">
-            <b-form-input
-              id="userid"
-              v-model="user.userid"
-              required
-              placeholder="아이디 입력...."
-            ></b-form-input>
-          </b-form-group>
-          <b-button variant="secondary" @click="idcheck"
-            >아이디 중복체크</b-button
-          >
-          <b-form-group label="비밀번호:" label-for="userpwd">
-            <b-form-input
-              type="password"
-              id="userpwd"
-              v-model="user.userpwd"
-              required
-              placeholder="비밀번호 입력...."
-            ></b-form-input>
-          </b-form-group>
-          <b-form-group label="이름:" label-for="username">
-            <b-form-input
-              id="username"
-              v-model="user.username"
-              required
-              placeholder="이름 입력...."
-            ></b-form-input>
-          </b-form-group>
-          <b-form-group label="이메일:" label-for="email">
-            <b-form-input
-              id="email"
-              v-model="user.email"
-              required
-              placeholder="이메일 입력...."
-            ></b-form-input>
-          </b-form-group>
-          <b-button type="button" variant="primary" class="m-1" @click="regist"
-            >가입하기</b-button
-          >
-          <b-button
-            type="button"
-            variant="success"
-            class="m-1"
-            @click="movePage"
-            >취소</b-button
-          >
+        <b-card
+          class="text-center mt-3"
+          style="max-width: 40rem; background-color: khaki"
+          align="left"
+        >
+          <b-form class="text-left">
+            <b-form-group label="ID:" label-for="userid">
+              <b-form-input
+                id="userid"
+                v-model="user.userid"
+                required
+                placeholder="ID 입력"
+              ></b-form-input>
+            </b-form-group>
+            <b-button variant="secondary" @click="idcheck"
+              >아이디 중복체크</b-button
+            >
+            <b-form-group label="PASSWORD:" label-for="userpwd">
+              <b-form-input
+                type="password"
+                id="userpwd"
+                v-model="user.userpwd"
+                required
+                placeholder="PASWORD 입력"
+              ></b-form-input>
+            </b-form-group>
+            <b-form-group label="이름:" label-for="username">
+              <b-form-input
+                id="username"
+                v-model="user.username"
+                required
+                placeholder="이름 입력"
+              ></b-form-input>
+            </b-form-group>
+            <b-form-group label="E-MAIL:" label-for="email">
+              <b-form-input
+                id="email"
+                v-model="user.email"
+                required
+                placeholder="E-MAIL 입력"
+              ></b-form-input>
+            </b-form-group>
+            <b-button
+              type="button"
+              variant="primary"
+              class="m-1"
+              @click="regist"
+              >가입하기</b-button
+            >
+            <b-button
+              type="button"
+              variant="success"
+              class="m-1"
+              @click="movePage"
+              >취소</b-button
+            >
+          </b-form>
         </b-card>
       </b-col>
       <b-col></b-col>

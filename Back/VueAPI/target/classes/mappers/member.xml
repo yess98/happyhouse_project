@@ -27,5 +27,21 @@
 		where userid = #{userid}
 	</select>
 	
+	<!-- 회원정보삭제 -->
+	<delete id="deleteUser" parameterType="String">
+		delete 
+		from ssafy_member 
+		where userid = #{userid}
+	</delete>
+	
+	<!-- 회원정보수정 -->
+	<update id="updateUser" parameterType="MemberDto">
+		update ssafy_member 
+		   set email = #{email}, 
+		   	   userpwd = #{userpwd}, 
+		   	   username = #{username}
+		 where userid = #{userid}
+	</update>
+	
 	
 </mapper>

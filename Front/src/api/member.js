@@ -13,4 +13,8 @@ async function findById(userid, success, fail) {
 
 // function logout(success, fail)
 
-export { login, findById };
+function deleteUser(userid, success, fail) {
+  api.delete(`/user/${userid}`).then(success).catch(fail);
+}
+
+export { login, findById, deleteUser };
