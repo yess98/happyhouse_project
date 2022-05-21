@@ -30,8 +30,8 @@
           >
           <b-nav-item href="#"
             ><router-link :to="{ name: 'instagram' }" class="link"
-              ><b-icon icon="instagram" font-scale="1.5"></b-icon>
-              인별그램</router-link
+              ><b-icon icon="newspaper" font-scale="1.5"></b-icon> 부동산
+              News</router-link
             ></b-nav-item
           >
           <b-nav-item href="#"

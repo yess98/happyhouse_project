@@ -46,26 +46,33 @@ public class NewsController {
 		String s_from = s_date.replace(".", "");
 		String e_to = e_date.replace(".", "");
 		int page = 1;
-
-		while (page < 20) {
+		System.out.println("뉴스컨트롤러실행");
+		while (page < 10) {
 			String address = "https://search.naver.com/search.naver?where=news&query=" + query + "&sort=1&ds=" + s_date
 					+ "&de=" + e_date + "&nso=so%3Ar%2Cp%3Afrom" + s_from + "to" + e_to + "%2Ca%3A&start="
 					+ Integer.toString(page);
-			Document rawData = Jsoup.connect(address).timeout(5000).get();
+			// Document rawData = Jsoup.connect(address).timeout(5000).get();
+			Document rawData = Jsoup.connect(address).get();
 			System.out.println(address);
-			Elements blogOption = rawData.select("dl dt");
+			Elements blogOption = rawData.select("div.news_wrap.api_ani_send");
 			String realURL = "";
 			String realTITLE = "";
-
+			String imgsrc = "";
+			
 			for (Element option : blogOption) {
-				realURL = option.select("a").attr("href");
-				realTITLE = option.select("a").attr("title");
+				realURL = option.select("a.news_tit").attr("href");
+				realTITLE = option.select("a.news_tit").attr("title");
+				imgsrc = option.select("img.thumb.api_get").attr("src");
 				System.out.println(realTITLE);
-				list.add(new NewsDto(realURL,realTITLE));
+				list.add(new NewsDto(realURL, realTITLE, imgsrc));
 			}
 			page += 10;
 		}
-
+		for (int i = 0; i < list.size(); i++) {
+			NewsDto temp = list.get(i);
+			System.out.println(temp.getTitle());
+			System.out.println(temp.getUrl());
+		}
 		return new ResponseEntity<List<NewsDto>>(list, HttpStatus.OK);
 	}
 
