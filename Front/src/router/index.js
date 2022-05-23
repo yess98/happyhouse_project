@@ -108,6 +108,16 @@ const routes = [
     beforeEnter: onlyAuthUser,
     component: () => import("@/views/TodoView.vue"),
   },
+  {
+    path: "/apt",
+    name: "apt",
+    component: () => import("@/views/AptView.vue"),
+  },
+  {
+    path: "/sanggwon",
+    name: "sanggwon",
+    component: () => import("@/views/SanggwonView.vue"),
+  },
 ];
 
 const router = new VueRouter({

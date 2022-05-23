@@ -1,14 +1,13 @@
-import { dongList, gugunList, aptList, aptDealList } from "@/api/house.js";
+import { dongList, gugunList, typeList } from "@/api/sanggwon.js";
 // import http from "@/util/http-common";
 
-const houseStore = {
+const sanggwonStore = {
   namespaced: true,
   state: {
     gu: [],
     dong: [],
-    apt: [],
+    type: [],
     houses: [],
-    house: null,
     dealinfo: [],
   },
   getters: {},
@@ -29,8 +28,8 @@ const houseStore = {
       //   console.log(houses);
       state.houses = houses;
     },
-    SET_APT_LIST: (state, apt) => {
-      state.apt = apt;
+    SET_TYPE_LIST: (state, types) => {
+      state.types = types;
     },
     SET_DETAIL_HOUSE: (state, house) => {
       state.house = house;
@@ -78,28 +77,12 @@ const houseStore = {
         },
       );
     },
-    getApt: ({ commit }, dongcode) => {
-      const params = {
-        dong: dongcode,
-      };
-      aptList(
+    getType: ({ commit }, params) => {
+      console.log(params);
+      typeList(
         params,
         ({ data }) => {
-          commit("SET_APT_LIST", data);
-        },
-        (error) => {
-          console.log(error);
-        },
-      );
-    },
-    getAptDeal: ({ commit }, aptCode) => {
-      const params = {
-        houseNo: aptCode,
-      };
-      aptDealList(
-        params,
-        ({ data }) => {
-          commit("SET_APTDEAL_LIST", data);
+          commit("SET_TYPE_LIST", data);
         },
         (error) => {
           console.log(error);
@@ -109,4 +92,4 @@ const houseStore = {
   },
 };
 
-export default houseStore;
+export default sanggwonStore;

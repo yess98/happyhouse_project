@@ -12,7 +12,16 @@ function gugunList(params, success, fail) {
 }
 
 function houseList(params, success, fail) {
-  house.get(``, { params: params }).then(success).catch(fail);
+  house.get(`/map/dong`, { params: params }).then(success).catch(fail);
+}
+function dongList(params, success, fail) {
+  api.get(`/map/dong`, { params: params }).then(success).catch(fail);
+}
+function aptList(params, success, fail) {
+  api.get(`/map/apt`, { params: params }).then(success).catch(fail);
+}
+function aptDealList(params, success, fail) {
+  api.get(`/map/apt/deal`, { params: params }).then(success).catch(fail);
 }
 
-export { sidoList, gugunList, houseList };
+export { sidoList, gugunList, houseList, dongList, aptList, aptDealList };

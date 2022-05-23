@@ -43,79 +43,90 @@
           </select>
         </fieldset>
       </div>
+      <div class="col-lg-4 col-md-6 col-sm-6">
+        <fieldset>
+          <select
+            v-model="selectType"
+            @change="onTypeChange"
+            class="array-select form-control form-select"
+            aria-label="example"
+          >
+            <option value="default" selected>종류 선택</option>
+            <option
+              v-for="(item, index) in type"
+              :key="index"
+              :value="item.typeName"
+            >
+              {{ item.typeName }}
+            </option>
+          </select>
+        </fieldset>
+      </div>
     </div>
     <div v-if="visible" id="showList" class="card p-0 bg-secondary">
       <div class="bg-white mb-2">
         <div class="px-3">
           <div>
-            <h4 class="m-0">{{ apt[curIndex].aptName }}</h4>
+            <h4 class="m-0">{{ types[curIndex].name }}</h4>
           </div>
           <div class="border-bottom d-flex py-2">
             <div class="text-secondary w-25">주소</div>
-            <div>{{ apt[curIndex].dongName }} {{ apt[curIndex].jibun }}</div>
+            <div>
+              {{ types[curIndex].sidoname }} {{ types[curIndex].sigunguname }}
+            </div>
           </div>
-          <div class="d-flex py-2">
-            <div class="text-secondary w-25">건축년도</div>
-            <div>{{ apt[curIndex].buildYear }}</div>
+          <div class="border-bottom d-flex py-2">
+            <div class="text-secondary w-25">도로명 주소</div>
+            <div>{{ types[curIndex].doroname }}</div>
           </div>
-        </div>
-      </div>
-      <div class="bg-white mb-2">
-        <div class="border-bottom"><h5 class="p-3 m-0">실거래가</h5></div>
-        <div>
-          <table class="w-100">
-            <thead class="bg-secondary text-white">
-              <tr>
-                <td class="ps-3 py-1">거래일</td>
-                <td>거래가격</td>
-                <td>면적</td>
-                <td>층수</td>
-              </tr>
-            </thead>
-            <tbody class="px-2">
-              <tr
-                v-for="(item, index) in dealinfo"
-                :key="index"
-                class="border-bottom"
-              >
-                <td class="ps-3 py-2">{{ item.dealYear }}</td>
-                <td>{{ item.dealAmount }}</td>
-                <td>{{ item.area }}</td>
-                <td>{{ item.floor }}</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="border-bottom d-flex py-2">
+            <div class="text-secondary w-25">유형</div>
+            <div>{{ types[curIndex].type }}</div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </template>
-
 <script>
 import { mapState, mapActions, mapMutations } from "vuex";
-const houseStore = "houseStore";
-
+const sanggwonStore = "sanggwonStore";
 export default {
-  name: "HouseSearchBar",
+  name: "SanggwonSearchBar",
   data() {
     return {
       selectGuName: "default",
       selectDongName: "default",
+      selectType: "default",
       markers: [],
       deals: [],
       map: "",
       curIndex: -1,
       visible: false,
+      type: [
+        {
+          typeCode: 1,
+          typeName: "교육",
+        },
+        {
+          typeCode: 2,
+          typeName: "스포츠",
+        },
+        {
+          typeCode: 3,
+          typeName: "음식",
+        },
+      ],
     };
   },
   watch: {
-    apt: function () {
+    types: function () {
       this.removeMarkers();
-      if (this.visible) this.visible = !this.visible;
-      if (this.apt.length) {
-        this.addMarkers(this.apt);
-        console.log(this.apt);
-        this.$swal(`${this.apt.length}건의 데이터가 검색되었다.`, {
+      if (this.types.length) {
+        if (this.visible) this.visible = !this.visible;
+        this.addMarkers(this.types);
+        console.log(this.types);
+        this.$swal(`${this.types.length}건의 데이터가 검색되었다.`, {
           icon: "success",
         });
       } else {
@@ -126,7 +137,7 @@ export default {
     },
   },
   computed: {
-    ...mapState(houseStore, [
+    ...mapState(sanggwonStore, [
       "culturalspace",
       "sidos",
       "gu",
@@ -134,6 +145,7 @@ export default {
       "houses",
       "apt",
       "dealinfo",
+      "types",
     ]),
     // sidos() {
     //   return this.$store.state.sidos;
@@ -155,15 +167,16 @@ export default {
     }
   },
   methods: {
-    ...mapActions(houseStore, [
+    ...mapActions(sanggwonStore, [
       "getSido",
       "getGugun",
       "getHouseList",
+      "getType",
       "getDong",
       "getApt",
       "getAptDeal",
     ]),
-    ...mapMutations(houseStore, [
+    ...mapMutations(sanggwonStore, [
       "CLEAR_SIDO_LIST",
       "CLEAR_GUGUN_LIST",
       "CLEAR_DONG_LIST",
@@ -193,7 +206,18 @@ export default {
     onDongMenuChange() {
       if (this.selectDongName !== "default") {
         this.eventFrom = "dong";
-        this.getApt(this.selectDongName);
+        console.log(this.selectDongName);
+      }
+    },
+    onTypeChange() {
+      if (this.selectType !== "default") {
+        console.log(this.selectDongName);
+        console.log(this.selectType);
+        const params = {
+          dongCode: this.selectDongName,
+          type: this.selectType,
+        };
+        this.getType(params);
       }
     },
     removeMarkers() {
@@ -202,11 +226,11 @@ export default {
     },
 
     addMarkers(list) {
-      let bounds = new kakao.maps.LatLngBounds();
       console.log(list);
-      list.forEach(({ lat, lng }, index) => {
+      let bounds = new kakao.maps.LatLngBounds();
+      list.forEach(({ lat, lon }, index) => {
         console.log(`forEach ${index}`);
-        let markerPosition = new kakao.maps.LatLng(lat, lng);
+        let markerPosition = new kakao.maps.LatLng(lat, lon);
         this.addMarkerByOne(markerPosition, index);
         bounds.extend(markerPosition);
       });
@@ -219,28 +243,20 @@ export default {
       });
       let $this = this;
       kakao.maps.event.addListener(marker, "click", function () {
-        $this.showHouseDetail(index);
+        $this.showDetail(index);
       });
       this.markers.push(marker);
       marker.setMap(this.map);
     },
-    showHouseDetail(index) {
+    showDetail(index) {
       this.curIndex = index;
-      console.log(this.apt[index].dongName);
       if (!this.visible) this.visible = true;
-      const houseNo = this.apt[index].aptCode;
-      this.getHouseDeal(houseNo);
-      console.log(houseNo);
-    },
-    getHouseDeal(houseNo) {
-      console.log(houseNo);
-      this.getAptDeal(houseNo);
     },
     addInfoWindow() {
       console.log("addiw");
       this.markers.forEach((marker, index) => {
-        let item = this.apt[index];
-        let infoContents = `<div style="width:150px;text-align:center;padding:6px 0;">${item.aptName}</div>`;
+        let item = this.types[index];
+        let infoContents = `<div style="width:150px;text-align:center;padding:6px 0;">${item.name}</div>`;
         let infoWindow = new kakao.maps.InfoWindow({
           content: infoContents,
         });

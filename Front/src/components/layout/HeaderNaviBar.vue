@@ -46,6 +46,18 @@
               TodoList</router-link
             ></b-nav-item
           >
+          <b-nav-item href="#"
+            ><router-link :to="{ name: 'apt' }" class="link"
+              ><b-icon icon="house-fill" font-scale="1.5"></b-icon>
+              아파트정보</router-link
+            ></b-nav-item
+          >
+          <b-nav-item href="#"
+            ><router-link :to="{ name: 'sanggwon' }" class="link"
+              ><b-icon icon="house-fill" font-scale="1.5"></b-icon>
+              상권정보</router-link
+            ></b-nav-item
+          >
         </b-navbar-nav>
 
         <b-navbar-nav class="ml-auto" v-if="userInfo">

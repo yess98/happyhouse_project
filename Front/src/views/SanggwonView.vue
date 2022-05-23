@@ -5,18 +5,18 @@
     </h3>
     <b-row>
       <b-col>
-        <house-search-bar></house-search-bar>
+        <sanggwon-search-bar></sanggwon-search-bar>
       </b-col>
     </b-row>
   </b-container>
 </template>
 <script>
-import HouseSearchBar from "@/components/house/HouseSearchBar.vue";
+import SanggwonSearchBar from "@/components/sanggwon/SanggwonSearchBar.vue";
 
 export default {
-  name: "HouseView",
+  name: "SanggwonView",
   components: {
-    HouseSearchBar,
+    SanggwonSearchBar,
   },
 };
 </script>
