@@ -43,5 +43,12 @@
 		 where userid = #{userid}
 	</update>
 	
+	<!-- 관심지역 -->
+	<select id="selectWord" resultType="WordDto">
+		select word, count
+		from wordcloud 
+		order by count desc
+	</select>
+	
 	
 </mapper>

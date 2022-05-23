@@ -1,10 +1,13 @@
 package com.ssafy.vue.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.ssafy.vue.dto.MemberDto;
+import com.ssafy.vue.dto.WordDto;
 import com.ssafy.vue.mapper.MemberMapper;
 
 @Service
@@ -46,5 +49,9 @@ public class MemberServiceImpl implements MemberService {
 	public boolean updateUser(MemberDto memberDto) {
 		return memberMapper.updateUser(memberDto) == 1;
 	}
-
+	
+	@Override
+	public List<WordDto> selectWord() {
+		return memberMapper.selectWord();
+	}
 }

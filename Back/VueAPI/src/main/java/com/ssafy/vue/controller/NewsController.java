@@ -58,13 +58,15 @@ public class NewsController {
 			String realURL = "";
 			String realTITLE = "";
 			String imgsrc = "";
-			
+
 			for (Element option : blogOption) {
 				realURL = option.select("a.news_tit").attr("href");
 				realTITLE = option.select("a.news_tit").attr("title");
 				imgsrc = option.select("img.thumb.api_get").attr("src");
 				System.out.println(realTITLE);
 				list.add(new NewsDto(realURL, realTITLE, imgsrc));
+				if (list.size() == 5)
+					break;
 			}
 			page += 10;
 		}

@@ -88,7 +88,7 @@ export default {
     ...mapMutations(memberStore, ["SET_IS_LOGIN", "SET_USER_INFO"]),
     regist() {
       http
-        .put("/usermodify", {
+        .put("/user/usermodify", {
           userid: this.userInfo.userid,
           userpwd: this.user.userpwd,
           username: this.user.username,

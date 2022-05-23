@@ -21,7 +21,7 @@ export default {
   height: 100vh;
   overflow: hidden;
   margin: 0;
-  background-image: url("./assets/city.jpg");
+  background-image: url("./assets/sofa.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
