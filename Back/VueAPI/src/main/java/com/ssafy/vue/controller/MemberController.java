@@ -1,6 +1,7 @@
 package com.ssafy.vue.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,6 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ssafy.vue.dto.Board;
 import com.ssafy.vue.dto.MemberDto;
+import com.ssafy.vue.dto.WordDto;
 import com.ssafy.vue.service.JwtServiceImpl;
 import com.ssafy.vue.service.MemberService;
 
@@ -55,6 +57,13 @@ public class MemberController {
 			return new ResponseEntity<String>(SUCCESS, HttpStatus.OK);
 		}
 		return new ResponseEntity<String>(FAIL, HttpStatus.NO_CONTENT);
+	}
+	
+	@ApiOperation(value = "게시판 글목록", notes = "모든 게시글의 정보를 반환한다.", response = List.class)
+	@GetMapping("/areaname")
+	public ResponseEntity<List<WordDto>> selectWord() throws Exception {
+		logger.debug("selectWord - 호출");
+		return new ResponseEntity<List<WordDto>>(memberService.selectWord(), HttpStatus.OK);
 	}
 	
 	@ApiOperation(value = "게시판 글정보 수정", notes = "글번호에 해당하는 게시글의 정보를 수정한다. 그리고 DB수정 성공여부에 따라 'success' 또는 'fail' 문자열을 반환한다.", response = String.class)

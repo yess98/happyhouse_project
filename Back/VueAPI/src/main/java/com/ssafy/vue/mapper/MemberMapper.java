@@ -1,8 +1,10 @@
 package com.ssafy.vue.mapper;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import com.ssafy.vue.dto.MemberDto;
+import com.ssafy.vue.dto.WordDto;
 
 public interface MemberMapper {
 
@@ -17,4 +19,6 @@ public interface MemberMapper {
 	int deleteUser(String userid);
 
 	int updateUser(MemberDto memberDto);
+	
+	public List<WordDto> selectWord();
 }

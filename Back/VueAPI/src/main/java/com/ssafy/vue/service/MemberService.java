@@ -1,6 +1,9 @@
 package com.ssafy.vue.service;
 
+import java.util.List;
+
 import com.ssafy.vue.dto.MemberDto;
+import com.ssafy.vue.dto.WordDto;
 
 public interface MemberService {
 
@@ -15,4 +18,6 @@ public interface MemberService {
 	boolean deleteUser(String userid);
 
 	boolean updateUser(MemberDto memberDto);
+	
+	public List<WordDto> selectWord();
 }

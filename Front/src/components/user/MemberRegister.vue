@@ -91,7 +91,7 @@ export default {
   methods: {
     idcheck() {
       http
-        .get(`/idcheck/${this.user.userid}`)
+        .get(`/user/idcheck/${this.user.userid}`)
         .then(({ data }) => {
           let msg = "중복된 아이디입니다. 다시 입력해주세요";
           if (data === "success") {
@@ -112,7 +112,7 @@ export default {
     },
     regist() {
       http
-        .post("/register/", {
+        .post("/user/register/", {
           userid: this.user.userid,
           userpwd: this.user.userpwd,
           username: this.user.username,
