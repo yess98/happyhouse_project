@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ssafy.vue.dto.HouseDealDto;
 import com.ssafy.vue.dto.HouseInfoDto;
 import com.ssafy.vue.dto.SidoGugunCodeDto;
 import com.ssafy.vue.mapper.HouseMapMapper;
@@ -33,6 +34,12 @@ public class HouseMapServiceImpl implements HouseMapService {
 	@Override
 	public List<HouseInfoDto> getAptInDong(String dong) throws Exception {
 		return houseMapMapper.getAptInDong(dong);
+	}
+
+	@Override
+	public List<HouseDealDto> getHouseDeal(int code) throws Exception {
+		// TODO Auto-generated method stub
+		return houseMapMapper.getHouseDeal(code);
 	}
 
 }

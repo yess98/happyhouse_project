@@ -2,6 +2,7 @@ package com.ssafy.vue.controller;
 
 import java.util.List;
 
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ssafy.vue.dto.HouseDealDto;
 import com.ssafy.vue.dto.HouseInfoDto;
 import com.ssafy.vue.dto.SidoGugunCodeDto;
 import com.ssafy.vue.service.HouseMapService;
@@ -46,6 +48,10 @@ public class HouseMapController {
 	@GetMapping("/apt")
 	public ResponseEntity<List<HouseInfoDto>> apt(@RequestParam("dong") String dong) throws Exception {
 		return new ResponseEntity<List<HouseInfoDto>>(haHouseMapService.getAptInDong(dong), HttpStatus.OK);
+	}
+	@GetMapping("/apt/deal")
+	public ResponseEntity<List<HouseDealDto>> deal(@RequestParam("houseNo") int code) throws Exception {
+		return new ResponseEntity<List<HouseDealDto>>(haHouseMapService.getHouseDeal(code), HttpStatus.OK);
 	}
 	
 }
