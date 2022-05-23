@@ -1,7 +1,35 @@
 <template>
   <div>
     <div id="map" style="width: 100%; height: 30vh"></div>
-    <div class="pb-2 d-flex justify-content-evenly">
+    <div class="p-2" style="width: 100%; height: 10vh; background-color: gray">
+      <div class="d-flex">
+        <i class="fa fa-search"></i>
+        <h6 class="ps-2">검색 방법을 선택하세요</h6>
+      </div>
+      <div class="py-1 px-2 d-flex">
+        <div class="form-check pe-3">
+          <input
+            value="D"
+            v-model="searchType"
+            class="form-check-input"
+            type="radio"
+            id="searchByDong"
+          />
+          <label class="form-check-label" for="searchByDong">동 검색</label>
+        </div>
+        <div class="form-check">
+          <input
+            value="K"
+            v-model="searchType"
+            class="form-check-input"
+            type="radio"
+            id="searchByKeyword"
+          />
+          <label class="form-check-label" for="searchByKeyword" /> 키워드 검색
+        </div>
+      </div>
+    </div>
+    <div v-if="searchType == 'D'" class="pb-2 d-flex justify-content-evenly">
       <div class="btn-group">
         <button type="button" class="btn btn-primary">서울시</button>
       </div>
@@ -43,6 +71,22 @@
           </select>
         </fieldset>
       </div>
+    </div>
+    <div v-if="searchType == 'K'" class="input-group pb-2 px-3">
+      <input
+        @keyup.enter="onKeywordSearch"
+        type="text"
+        v-model="keyword"
+        class="form-control d-inline-block"
+        placeholder="건물명 또는 동을 입력하세요"
+      />
+      <button
+        @click="onKeywordSearch"
+        class="btn btn-primary d-inline-block"
+        type="button"
+      >
+        <i class="bi bi-search"></i>
+      </button>
     </div>
     <div v-if="visible" id="showList" class="card p-0 bg-secondary">
       <div class="bg-white mb-2">
@@ -99,6 +143,7 @@ export default {
   name: "HouseSearchBar",
   data() {
     return {
+      searchType: "D",
       selectGuName: "default",
       selectDongName: "default",
       markers: [],
