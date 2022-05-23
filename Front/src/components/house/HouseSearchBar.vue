@@ -150,6 +150,7 @@ export default {
       deals: [],
       map: "",
       curIndex: -1,
+      keyword: "",
       visible: false,
     };
   },
@@ -207,6 +208,7 @@ export default {
       "getDong",
       "getApt",
       "getAptDeal",
+      "getInfoByKeyword",
     ]),
     ...mapMutations(houseStore, [
       "CLEAR_SIDO_LIST",
@@ -308,6 +310,13 @@ export default {
           infoWindow.close();
         });
       });
+    },
+    onKeywordSearch() {
+      if (this.keyword == "") {
+        this.$swal("키워드를 입력해주세요.", { icon: "error" });
+      } else {
+        this.getInfoByKeyword(this.keyword);
+      }
     },
     searchApt() {
       this.CLEAR_APT_LIST();

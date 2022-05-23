@@ -23,5 +23,16 @@ function aptList(params, success, fail) {
 function aptDealList(params, success, fail) {
   api.get(`/map/apt/deal`, { params: params }).then(success).catch(fail);
 }
+function searchList(params, success, fail) {
+  api.get(`/map/apt/search`, { params: params }).then(success).catch(fail);
+}
 
-export { sidoList, gugunList, houseList, dongList, aptList, aptDealList };
+export {
+  sidoList,
+  gugunList,
+  houseList,
+  dongList,
+  aptList,
+  aptDealList,
+  searchList,
+};

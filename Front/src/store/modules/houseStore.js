@@ -1,4 +1,10 @@
-import { dongList, gugunList, aptList, aptDealList } from "@/api/house.js";
+import {
+  dongList,
+  gugunList,
+  aptList,
+  aptDealList,
+  searchList,
+} from "@/api/house.js";
 // import http from "@/util/http-common";
 
 const houseStore = {
@@ -10,6 +16,7 @@ const houseStore = {
     houses: [],
     house: null,
     dealinfo: [],
+    searchList: [],
   },
   getters: {},
   mutations: {
@@ -43,6 +50,9 @@ const houseStore = {
     },
     SET_APTDEAL_LIST: (state, deal) => {
       state.dealinfo = deal;
+    },
+    SET_SEARCH_LIST(state, data) {
+      state.apt = data;
     },
   },
 
@@ -100,6 +110,20 @@ const houseStore = {
         params,
         ({ data }) => {
           commit("SET_APTDEAL_LIST", data);
+        },
+        (error) => {
+          console.log(error);
+        },
+      );
+    },
+    getInfoByKeyword: ({ commit }, keyword) => {
+      const params = {
+        search: keyword,
+      };
+      searchList(
+        params,
+        ({ data }) => {
+          commit("SET_SEARCH_LIST", data);
         },
         (error) => {
           console.log(error);
