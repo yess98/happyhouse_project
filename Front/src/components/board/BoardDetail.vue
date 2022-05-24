@@ -9,7 +9,7 @@
       <b-col class="text-left">
         <b-button variant="outline-primary" @click="listArticle">목록</b-button>
       </b-col>
-      <b-col class="text-right">
+      <b-col class="text-right" v-if="userInfo.userid == `${article.userid}`">
         <b-button
           variant="outline-info"
           size="sm"
@@ -42,7 +42,10 @@
 
 <script>
 // import moment from "moment";
-import { getArticle, deleteArticle } from "@/api/board";
+import { getArticle, deleteArticle, updateHit } from "@/api/board";
+import { mapState } from "vuex";
+
+const memberStore = "memberStore";
 
 export default {
   name: "BoardDetail",
@@ -52,6 +55,7 @@ export default {
     };
   },
   computed: {
+    ...mapState(memberStore, ["userInfo"]),
     message() {
       if (this.article.content)
         return this.article.content.split("\n").join("<br>");
@@ -59,15 +63,26 @@ export default {
     },
   },
   created() {
-    getArticle(
+    updateHit(
       this.$route.params.articleno,
       (response) => {
-        this.article = response.data;
+        console.log(response);
+        alert("조회수 수정 완료!");
       },
       (error) => {
+        alert("조회수 수정 실패!");
         console.log("삭제시 에러발생!!", error);
       },
-    );
+    ),
+      getArticle(
+        this.$route.params.articleno,
+        (response) => {
+          this.article = response.data;
+        },
+        (error) => {
+          console.log("삭제시 에러발생!!", error);
+        },
+      );
   },
   methods: {
     listArticle() {

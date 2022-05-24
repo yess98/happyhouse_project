@@ -21,4 +21,6 @@ public interface MemberMapper {
 	int updateUser(MemberDto memberDto);
 	
 	public List<WordDto> selectWord();
+	
+	public List<MemberDto> userList();
 }
