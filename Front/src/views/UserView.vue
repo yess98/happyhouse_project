@@ -1,14 +1,18 @@
 <template>
   <b-container class="bv-example-row mt-3">
-    <b-row>
+    <!-- <b-row>
       <b-col>
         <b-alert show><h3>글목록</h3></b-alert>
       </b-col>
-    </b-row>
+    </b-row> -->
     <b-row>
       <b-col v-if="users.length">
-        <b-table-simple hover responsive style="background-color: khaki">
-          <b-thead head-variant="dark">
+        <b-table-simple
+          hover
+          responsive
+          style="background-color: blanchedalmond; text-align: center"
+        >
+          <b-thead head-variant="light">
             <b-tr>
               <b-th>번호</b-th>
               <b-th>이름</b-th>

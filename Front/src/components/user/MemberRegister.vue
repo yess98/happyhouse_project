@@ -10,7 +10,7 @@
       <b-col cols="8">
         <b-card
           class="text-center mt-3"
-          style="max-width: 40rem; background-color: khaki"
+          style="max-width: 40rem; background-color: blanchedalmond"
           align="left"
         >
           <b-form class="text-left">
