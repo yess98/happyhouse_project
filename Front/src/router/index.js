@@ -117,6 +117,11 @@ const routes = [
     name: "sanggwon",
     component: () => import("@/views/SanggwonView.vue"),
   },
+  {
+    path: "/userlist",
+    name: "userlist",
+    component: () => import("@/views/UserView.vue"),
+  },
 ];
 
 const router = new VueRouter({

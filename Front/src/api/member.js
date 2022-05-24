@@ -17,4 +17,8 @@ function deleteUser(userid, success, fail) {
   api.delete(`/user/${userid}`).then(success).catch(fail);
 }
 
-export { login, findById, deleteUser };
+function userList(success, fail) {
+  api.get(`/user`).then(success).catch(fail);
+}
+
+export { login, findById, deleteUser, userList };
