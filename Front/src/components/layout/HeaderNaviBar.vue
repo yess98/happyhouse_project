@@ -59,7 +59,6 @@
             ></b-nav-item
           >
         </b-navbar-nav>
-
         <b-navbar-nav class="ml-auto" v-if="userInfo">
           <b-nav-item class="align-self-center"
             ><b-avatar
