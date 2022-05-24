@@ -58,6 +58,12 @@
               상권정보</router-link
             ></b-nav-item
           >
+          <b-nav-item href="#" v-if="userInfo && userInfo.userid == `admin`"
+            ><router-link :to="{ name: 'userlist' }" class="link"
+              ><b-icon icon="house-fill" font-scale="1.5"></b-icon>
+              사용자목록</router-link
+            ></b-nav-item
+          >
         </b-navbar-nav>
         <b-navbar-nav class="ml-auto" v-if="userInfo">
           <b-nav-item class="align-self-center"
