@@ -17,6 +17,11 @@ const houseStore = {
     house: null,
     dealinfo: [],
     searchList: [],
+    drawingFlag: false,
+    moveLine: null,
+    clickLine: null,
+    distanceOverlay: null,
+    dots: null,
   },
   getters: {},
   mutations: {
