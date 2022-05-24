@@ -137,7 +137,6 @@
 
 <script>
 import { mapState, mapActions, mapMutations } from "vuex";
-// import dist from "vuex-persistedstate";
 const houseStore = "houseStore";
 
 export default {
@@ -227,27 +226,6 @@ export default {
       };
 
       this.map = new kakao.maps.Map(mapContainer, mapOption);
-      // kakao.maps.event.addListener(this.map, "rightclick", function (mouseEvent) {
-      //     if (drawingFlag) {
-      //       moveLine.setMap(null);
-      //       moveLine = null;
-      //       var path = clickLine.getPath();
-      //       if (path.length > 1) {
-      //         if (dots[dots.length - 1].distance) {
-      //           dots[dots.length - 1].distance.setMap(null);
-      //           dots[dots.length - 1].distance = null;
-      //         }
-      //         var distance = Math.round(clickLine.getLength()),
-      //           content = getTimeHTML(distance);
-      //         showDistance(content, path[path.length - 1]);
-      //       } else {
-      //         this.deleteClickLine(clickLine);
-      //         this.deleteCircleDot();
-      //         this.deleteDistance();
-      //       }
-      //     drawingFlag = false;
-      //     }
-      //   });
     },
     initSearchBox() {
       this.getGugun(11);
@@ -346,100 +324,6 @@ export default {
         this.getApt(this.dongCode);
       }
     },
-    // deleteClickLine(clickLine) {
-    //   if (clickLine) {
-    //     clickLine.setMap(null);
-    //     clickLine = null;
-    //   }
-    // },
-    // showDistance(content, position) {
-    //   if (this.distanceOverlay) {
-    //     this.distanceOverlay.setPosition(position);
-    //     this.distanceOverlat.setContent(content);
-    //   } else {
-    //     this.distanceOverlay = new kakao.maps.CustomOverlay({
-    //       map: this.map,
-    //       content: content,
-    //       position: position,
-    //       xAnchor: 0,
-    //       yAnchor: 0,
-    //       zIndex: 3,
-    //     });
-    //   }
-    // },
-    // deleteDistance() {
-    //   if (this.distanceOverlay) {
-    //     this.distanceOverlay.setMap(null);
-    //     this.distanceOverlay = null;
-    //   }
-    // },
-    // displayCircleDot(position, distance) {
-    //   var circleOverlay = new Kakao.maps.CustomOverlay({
-    //     content: '<span class="dot"></span>',
-    //     position: position,
-    //     zIndex: 1,
-    //   });
-    //   circleOverlay.setMap(this.map);
-    //   if (distance > 0) {
-    //     var distanceOverlay = new Kakao.maps.CustomOverlay({
-    //       content:
-    //       "<div class='dotOverlay'>거리 <span class='number'>" +
-    //       distance +
-    //       "</span>m</div>",
-    //       position: position,
-    //       yAnchor: 1,
-    //       zIndex: 2,
-    //     });
-    //     distanceOverlay.setMap(this.map);
-    //   }
-    //   this.dots.push({circle:circleOverlay, distance:distanceOverlay});
-    // },
-    // deleteCircleDot() {
-    //   var i;
-    //   for (i = 0; i < this.dots.length; i++) {
-    //     if (this.dots[i].circle) {
-    //       this.dots[i].circle.setMap(null);
-    //     }
-    //     if (this.dots[i].distance) {
-    //       this.dots[i].distance.setMap(null);
-    //     }
-    //   }
-    //   this.dots = [];
-    // },
-    // getTimeHTML(distance) {
-    //   var walkTime = (distance / 67) | 0;
-    //   var walkHour = "";
-    //   var walkMin = "";
-    //   if (walkTime > 60) {
-    //     walkHour =
-    //     "<span class='number'>" +
-    //     Math.floor(walkTime / 60) +
-    //     "</span>시간 ";
-    //   }
-    //   walkMin = "<span class='number'>" + (walkTime % 60) + "</span>분";
-    //   var bycicleTime = (distance / 227) | 0;
-    //   var bycicleHour = "";
-    //   var bycicleMin = "";
-    //   if (bycicleTime > 60) {
-    //     bycicleHour = "<span class='number'>" + Math.floor(bycicleTime / 60) + "</span>시간 ";
-    //   }
-    //   bycicleMin = "<span class='number'>" + (bycicleTime % 60) + "</span>분";
-
-    //   // 거리와 도보 시간, 자전거 시간을 가지고 HTML Content를 만들어 리턴합니다
-    //   var content = "<ul class='dotOverlay distanceInfo'>";
-    //   content += "    <li>";
-    //   content += "        <span class='label'>총거리</span><span class='number'>" + distance + "</span>";
-    //   content += "    </li>";
-    //   content += "    <li>";
-    //   content += "        <span class='label'>도보</span>" + walkHour + walkMin;
-    //   content += "    </li>";
-    //   content += "    <li>";
-    //   content += "        <span class='label'>자전거</span>" + bycicleHour + bycicleMin;
-    //   content += "    </li>";
-    //   content += "</ul>";
-
-    //   return content;
-    // },
   },
 };
 </script>

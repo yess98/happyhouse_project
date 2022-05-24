@@ -1,42 +1,22 @@
 <template>
-  <div id="app" class="background">
-    <navi-bar />
+  <div id="app">
     <router-view />
   </div>
 </template>
 
 <script>
-import NaviBar from "@/components/layout/HeaderNaviBar.vue";
-export default {
-  name: "App",
-  components: {
-    NaviBar,
-  },
-};
+export default {};
 </script>
 
 <style>
-.background {
-  height: 100vh;
-  overflow: hidden;
-  margin: 0;
-  background-image: url("./assets/sofa.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
+@import url("https://fonts.googleapis.com/css2?family=Jua&display=swap");
 
-a {
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: none;
-  font-weight: bold;
-  color: chartreuse;
-}
-
-a.router-link-exact-active {
-  color: #3aa4ca;
+#app {
+  font-family: "Jua", sans-serif;
+  font-size: 1.5em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
 }
 </style>

@@ -1,10 +1,10 @@
 <template>
   <div>
-    <b-navbar toggleable="lg" type="dark" variant="dark">
+    <b-navbar type="light" style="height: 100%">
       <b-navbar-brand href="#">
         <router-link to="/">
           <img
-            src="@/assets/logo.png"
+            src="@/assets/ssafy_logo.png"
             class="d-inline-block align-middle"
             width="60px"
             height="60px"
@@ -18,50 +18,51 @@
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
           <b-nav-item href="#"
-            ><router-link :to="{ name: 'home' }" class="link"
-              ><b-icon icon="house" font-scale="1.5"></b-icon> 홈</router-link
-            ></b-nav-item
-          >
-          <b-nav-item href="#"
-            ><router-link :to="{ name: 'board' }" class="link"
-              ><b-icon icon="journal" font-scale="1.5"></b-icon>
-              게시판</router-link
-            ></b-nav-item
-          >
-          <b-nav-item href="#"
             ><router-link :to="{ name: 'instagram' }" class="link"
-              ><b-icon icon="newspaper" font-scale="1.5"></b-icon> 부동산
-              News</router-link
-            ></b-nav-item
-          >
-          <b-nav-item href="#"
-            ><router-link :to="{ name: 'house' }" class="link"
-              ><b-icon icon="house-fill" font-scale="1.5"></b-icon>
-              아파트정보</router-link
-            ></b-nav-item
-          >
-          <b-nav-item href="#"
-            ><router-link :to="{ name: 'todo' }" class="link"
-              ><b-icon icon="calendar-check" font-scale="1.5"></b-icon>
-              TodoList</router-link
+              ><p class="h5 mb-2">
+                <b-icon icon="newspaper" font-scale="1.0"></b-icon>
+                부동산 News
+              </p></router-link
             ></b-nav-item
           >
           <b-nav-item href="#"
             ><router-link :to="{ name: 'apt' }" class="link"
-              ><b-icon icon="house-fill" font-scale="1.5"></b-icon>
-              아파트정보</router-link
+              ><p class="h5 mb-2">
+                <b-icon icon="house-fill" font-scale="1.0"></b-icon>
+                아파트정보
+              </p></router-link
             ></b-nav-item
           >
           <b-nav-item href="#"
             ><router-link :to="{ name: 'sanggwon' }" class="link"
-              ><b-icon icon="house-fill" font-scale="1.5"></b-icon>
-              상권정보</router-link
+              ><p class="h5 mb-2">
+                <b-icon icon="house-fill" font-scale="1.0"></b-icon>
+                상권정보
+              </p></router-link
+            ></b-nav-item
+          >
+          <b-nav-item href="#"
+            ><router-link :to="{ name: 'board' }" class="link"
+              ><p class="h5 mb-2">
+                <b-icon icon="journal" font-scale="1.0"></b-icon>
+                게시판
+              </p></router-link
+            ></b-nav-item
+          >
+          <b-nav-item href="#"
+            ><router-link :to="{ name: 'todo' }" class="link"
+              ><p class="h5 mb-2">
+                <b-icon icon="calendar-check" font-scale="1.0"></b-icon>
+                TodoList
+              </p></router-link
             ></b-nav-item
           >
           <b-nav-item href="#" v-if="userInfo && userInfo.userid == `admin`"
             ><router-link :to="{ name: 'userlist' }" class="link"
-              ><b-icon icon="house-fill" font-scale="1.5"></b-icon>
-              사용자목록</router-link
+              ><p class="h5 mb-2">
+                <b-icon icon="house-fill" font-scale="1.0"></b-icon>
+                사용자목록
+              </p></router-link
             ></b-nav-item
           >
         </b-navbar-nav>
@@ -78,7 +79,7 @@
             ><router-link
               :to="{ name: 'mypage' }"
               class="link align-self-center"
-              >내정보보기</router-link
+              ><p class="h5 mb-2">내정보보기</p></router-link
             ></b-nav-item
           >
           <b-nav-item
@@ -90,7 +91,7 @@
         <b-navbar-nav class="ml-auto" v-else>
           <b-nav-item-dropdown right>
             <template #button-content>
-              <b-icon icon="people" font-scale="2"></b-icon>
+              <b-icon icon="people" font-scale="1"></b-icon>
             </template>
             <b-dropdown-item href="#"
               ><router-link :to="{ name: 'signUp' }" class="link"
@@ -99,7 +100,8 @@
             >
             <b-dropdown-item href="#"
               ><router-link :to="{ name: 'signIn' }" class="link"
-                ><b-icon icon="key"></b-icon> 로그인</router-link
+                ><b-icon icon="key"></b-icon>
+                <p>로그인</p></router-link
               ></b-dropdown-item
             >
           </b-nav-item-dropdown>
