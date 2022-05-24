@@ -20,4 +20,6 @@ public interface MemberService {
 	boolean updateUser(MemberDto memberDto);
 	
 	public List<WordDto> selectWord();
+	
+	public List<MemberDto> userList();
 }

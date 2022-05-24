@@ -16,6 +16,11 @@
 		where userid = #{userid}
 	</select>
 	
+	<select id="userList" resultType="memberDto">
+		select userid, username, userid, email, joindate
+		from ssafy_member
+	</select>
+	
 	<insert id="registerMember" parameterType="MemberDto">
 		insert into ssafy_member (userid, username, userpwd, email, joindate)
 		values (#{userid}, #{username}, #{userpwd}, #{email}, now())

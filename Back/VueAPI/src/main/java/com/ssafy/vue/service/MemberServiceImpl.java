@@ -54,4 +54,9 @@ public class MemberServiceImpl implements MemberService {
 	public List<WordDto> selectWord() {
 		return memberMapper.selectWord();
 	}
+
+	@Override
+	public List<MemberDto> userList() {
+		return memberMapper.userList();
+	}
 }

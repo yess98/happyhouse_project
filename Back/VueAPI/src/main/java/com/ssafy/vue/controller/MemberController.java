@@ -65,6 +65,12 @@ public class MemberController {
 		logger.debug("selectWord - 호출");
 		return new ResponseEntity<List<WordDto>>(memberService.selectWord(), HttpStatus.OK);
 	}
+	@ApiOperation(value = "사용자 목록", notes = "모든 사용자의 정보를 반환한다.", response = List.class)
+	@GetMapping
+	public ResponseEntity<List<MemberDto>> userList() throws Exception {
+		logger.debug("UserList - 호출");
+		return new ResponseEntity<List<MemberDto>>(memberService.userList(), HttpStatus.OK);
+	}
 	
 	@ApiOperation(value = "게시판 글정보 수정", notes = "글번호에 해당하는 게시글의 정보를 수정한다. 그리고 DB수정 성공여부에 따라 'success' 또는 'fail' 문자열을 반환한다.", response = String.class)
 	@PutMapping("{articleno}")
