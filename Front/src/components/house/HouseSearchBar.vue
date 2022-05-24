@@ -1,134 +1,147 @@
 <template>
   <div>
-    <div id="map" style="width: 100%; height: 30vh"></div>
-    <div class="p-2" style="width: 100%; height: 10vh; background-color: gray">
-      <div class="d-flex">
-        <i class="fa fa-search"></i>
-        <h6 class="ps-2">검색 방법을 선택하세요</h6>
-      </div>
-      <div class="py-1 px-2 d-flex">
-        <div class="form-check pe-3">
-          <input
-            value="D"
-            v-model="searchType"
-            class="form-check-input"
-            type="radio"
-            id="searchByDong"
-          />
-          <label class="form-check-label" for="searchByDong">동 검색</label>
-        </div>
-        <div class="form-check">
-          <input
-            value="K"
-            v-model="searchType"
-            class="form-check-input"
-            type="radio"
-            id="searchByKeyword"
-          />
-          <label class="form-check-label" for="searchByKeyword" /> 키워드 검색
-        </div>
-      </div>
-    </div>
-    <div v-if="searchType == 'D'" class="pb-2 d-flex justify-content-evenly">
-      <div class="btn-group">
-        <button type="button" class="btn btn-primary">서울시</button>
-      </div>
-      <div class="col-lg-4 col-md-6 col-sm-6">
-        <fieldset>
-          <select
-            v-model="selectGuName"
-            @change="onGuMenuChange"
-            class="array-select form-control form-select"
-            aria-label="example"
-          >
-            <option value="default" selected>구 선택</option>
-            <option
-              v-for="(item, index) in gu"
-              :key="index"
-              :value="item.gugunCode"
-            >
-              {{ item.gugunName }}
-            </option>
-          </select>
-        </fieldset>
-      </div>
-      <div class="col-lg-4 col-md-6 col-sm-6">
-        <fieldset>
-          <select
-            v-model="selectDongName"
-            @change="onDongMenuChange"
-            class="array-select form-control form-select"
-            aria-label="example"
-          >
-            <option value="default" selected>동 선택</option>
-            <option
-              v-for="(item, index) in dong"
-              :key="index"
-              :value="item.dongCode"
-            >
-              {{ item.dongName }}
-            </option>
-          </select>
-        </fieldset>
-      </div>
-    </div>
-    <div v-if="searchType == 'K'" class="input-group pb-2 px-3">
-      <input
-        @keyup.enter="onKeywordSearch"
-        type="text"
-        v-model="keyword"
-        class="form-control d-inline-block"
-        placeholder="건물명 또는 동을 입력하세요"
-      />
-      <button
-        @click="onKeywordSearch"
-        class="btn btn-primary d-inline-block"
-        type="button"
-      >
-        <i class="bi bi-search"></i>
-      </button>
-    </div>
-    <div v-if="visible" id="showList" class="card p-0 bg-secondary">
-      <div class="bg-white mb-2">
-        <div class="px-3">
-          <div>
-            <h4 class="m-0">{{ apt[curIndex].aptName }}</h4>
+    <div id="wrapper">
+      <div id="map" style="width: 100%; height: 100vh"></div>
+      <div id="searchBox" class="card">
+        <div
+          class="p-2"
+          style="width: 100%; height: 10vh; background-color: blanchedalmond"
+        >
+          <div class="d-flex">
+            <i class="fa fa-search"></i>
+            <h6 class="ps-2">검색 방법을 선택하세요</h6>
           </div>
-          <div class="border-bottom d-flex py-2">
-            <div class="text-secondary w-25">주소</div>
-            <div>{{ apt[curIndex].dongName }} {{ apt[curIndex].jibun }}</div>
-          </div>
-          <div class="d-flex py-2">
-            <div class="text-secondary w-25">건축년도</div>
-            <div>{{ apt[curIndex].buildYear }}</div>
+          <div class="py-1 px-2 d-flex">
+            <div class="form-check pe-3">
+              <input
+                value="D"
+                v-model="searchType"
+                class="form-check-input"
+                type="radio"
+                id="searchByDong"
+              />
+              <label class="form-check-label" for="searchByDong">동 검색</label>
+            </div>
+            <div class="form-check">
+              <input
+                value="K"
+                v-model="searchType"
+                class="form-check-input"
+                type="radio"
+                id="searchByKeyword"
+              />
+              <label class="form-check-label" for="searchByKeyword" /> 키워드
+              검색
+            </div>
           </div>
         </div>
-      </div>
-      <div class="bg-white mb-2">
-        <div class="border-bottom"><h5 class="p-3 m-0">실거래가</h5></div>
-        <div>
-          <table class="w-100">
-            <thead class="bg-secondary text-white">
-              <tr>
-                <td class="ps-3 py-1">거래일</td>
-                <td>거래가격</td>
-                <td>면적</td>
-                <td>층수</td>
-              </tr>
-            </thead>
-            <tbody class="px-2">
-              <tr
-                v-for="(item, index) in dealinfo"
-                :key="index"
-                class="border-bottom"
+        <div
+          v-if="searchType == 'D'"
+          class="pb-2 d-flex justify-content-evenly"
+        >
+          <div class="btn-group">
+            <button type="button" class="btn btn-primary">서울시</button>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-6">
+            <fieldset>
+              <select
+                v-model="selectGuName"
+                @change="onGuMenuChange"
+                class="array-select form-control form-select"
+                aria-label="example"
               >
-                <td class="ps-3 py-2">{{ item.dealYear }}</td>
-                <td>{{ item.dealAmount }}</td>
-                <td>{{ item.area }}</td>
-                <td>{{ item.floor }}</td>
-              </tr>
-            </tbody>
-          </table>
+                <option value="default" selected>구 선택</option>
+                <option
+                  v-for="(item, index) in gu"
+                  :key="index"
+                  :value="item.gugunCode"
+                >
+                  {{ item.gugunName }}
+                </option>
+              </select>
+            </fieldset>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-6">
+            <fieldset>
+              <select
+                v-model="selectDongName"
+                @change="onDongMenuChange"
+                class="array-select form-control form-select"
+                aria-label="example"
+              >
+                <option value="default" selected>동 선택</option>
+                <option
+                  v-for="(item, index) in dong"
+                  :key="index"
+                  :value="item.dongCode"
+                >
+                  {{ item.dongName }}
+                </option>
+              </select>
+            </fieldset>
+          </div>
+        </div>
+        <div v-if="searchType == 'K'" class="input-group pb-2 px-3">
+          <input
+            @keyup.enter="onKeywordSearch"
+            type="text"
+            v-model="keyword"
+            class="form-control d-inline-block"
+            placeholder="건물명 또는 동을 입력하세요"
+          />
+          <button
+            @click="onKeywordSearch"
+            class="btn btn-primary d-inline-block"
+            type="button"
+          >
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+        <div v-if="visible" id="showList" class="card p-0 bg-secondary">
+          <div class="bg-white mb-2">
+            <div class="px-3">
+              <div>
+                <h4 class="m-0">{{ apt[curIndex].aptName }}</h4>
+              </div>
+              <div class="border-bottom d-flex py-2">
+                <div class="text-secondary w-25">주소</div>
+                <div>
+                  {{ apt[curIndex].dongName }} {{ apt[curIndex].jibun }}
+                </div>
+              </div>
+              <div class="d-flex py-2">
+                <div class="text-secondary w-25">건축년도</div>
+                <div>{{ apt[curIndex].buildYear }}</div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white mb-2">
+            <div class="border-bottom"><h5 class="p-3 m-0">실거래가</h5></div>
+            <div>
+              <table class="w-100">
+                <thead class="bg-secondary text-white">
+                  <tr>
+                    <td class="ps-3 py-1">거래일</td>
+                    <td>거래가격</td>
+                    <td>면적</td>
+                    <td>층수</td>
+                  </tr>
+                </thead>
+                <tbody class="px-2">
+                  <tr
+                    v-for="(item, index) in dealinfo"
+                    :key="index"
+                    class="border-bottom"
+                  >
+                    <td class="ps-3 py-2">{{ item.dealYear }}</td>
+                    <td>{{ item.dealAmount }}</td>
+                    <td>{{ item.area }}</td>
+                    <td>{{ item.floor }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -328,4 +341,29 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+#wrapper {
+  position: relative;
+}
+#searchBox {
+  position: absolute;
+  top: 20px;
+  /* bottom : 10px; */
+  left: 20px;
+  width: 400px;
+  /* height: 400px; */
+  padding: 10px;
+  z-index: 100;
+  /* background-color:rgba(255, 244, 244, 0.8); */
+  /* opacity: 0.5; */
+  background-color: rgba(255, 255, 255, 0.7);
+
+  overflow-y: auto;
+}
+#showList {
+  overflow-y: scroll;
+  max-height: 60vh;
+  z-index: 100;
+  background-color: rgba(255, 244, 244, 0.6);
+}
+</style>

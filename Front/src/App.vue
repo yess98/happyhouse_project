@@ -1,11 +1,18 @@
 <template>
   <div id="app">
+    <navi-bar />
     <router-view />
   </div>
 </template>
 
 <script>
-export default {};
+import NaviBar from "@/components/layout/HeaderNaviBar.vue";
+export default {
+  name: "App",
+  components: {
+    NaviBar,
+  },
+};
 </script>
 
 <style>

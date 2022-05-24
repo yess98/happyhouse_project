@@ -1,87 +1,95 @@
 <template>
   <div>
-    <div id="map" style="width: 100%; height: 30vh"></div>
-    <div class="pb-2 d-flex justify-content-evenly">
-      <div class="btn-group">
-        <button type="button" class="btn btn-primary">서울시</button>
-      </div>
-      <div class="col-lg-4 col-md-6 col-sm-6">
-        <fieldset>
-          <select
-            v-model="selectGuName"
-            @change="onGuMenuChange"
-            class="array-select form-control form-select"
-            aria-label="example"
-          >
-            <option value="default" selected>구 선택</option>
-            <option
-              v-for="(item, index) in gu"
-              :key="index"
-              :value="item.gugunCode"
-            >
-              {{ item.gugunName }}
-            </option>
-          </select>
-        </fieldset>
-      </div>
-      <div class="col-lg-4 col-md-6 col-sm-6">
-        <fieldset>
-          <select
-            v-model="selectDongName"
-            @change="onDongMenuChange"
-            class="array-select form-control form-select"
-            aria-label="example"
-          >
-            <option value="default" selected>동 선택</option>
-            <option
-              v-for="(item, index) in dong"
-              :key="index"
-              :value="item.dongCode"
-            >
-              {{ item.dongName }}
-            </option>
-          </select>
-        </fieldset>
-      </div>
-      <div class="col-lg-4 col-md-6 col-sm-6">
-        <fieldset>
-          <select
-            v-model="selectType"
-            @change="onTypeChange"
-            class="array-select form-control form-select"
-            aria-label="example"
-          >
-            <option value="default" selected>종류 선택</option>
-            <option
-              v-for="(item, index) in type"
-              :key="index"
-              :value="item.typeName"
-            >
-              {{ item.typeName }}
-            </option>
-          </select>
-        </fieldset>
-      </div>
-    </div>
-    <div v-if="visible" id="showList" class="card p-0 bg-secondary">
-      <div class="bg-white mb-2">
-        <div class="px-3">
-          <div>
-            <h4 class="m-0">{{ types[curIndex].name }}</h4>
+    <div id="wrapper">
+      <div id="map" style="width: 100%; height: 95vh"></div>
+      <div id="searchBox" class="card">
+        <div
+          class="pb-2 d-flex justify-content-evenly"
+          style="width: 100%; height: 10vh"
+        >
+          <div class="btn-group">
+            <button type="button" class="btn btn-primary">서울시</button>
           </div>
-          <div class="border-bottom d-flex py-2">
-            <div class="text-secondary w-25">주소</div>
-            <div>
-              {{ types[curIndex].sidoname }} {{ types[curIndex].sigunguname }}
+          <div class="col-lg-4 col-md-6 col-sm-6">
+            <fieldset>
+              <select
+                v-model="selectGuName"
+                @change="onGuMenuChange"
+                class="array-select form-control form-select"
+                aria-label="example"
+              >
+                <option value="default" selected>구 선택</option>
+                <option
+                  v-for="(item, index) in gu"
+                  :key="index"
+                  :value="item.gugunCode"
+                >
+                  {{ item.gugunName }}
+                </option>
+              </select>
+            </fieldset>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-6">
+            <fieldset>
+              <select
+                v-model="selectDongName"
+                @change="onDongMenuChange"
+                class="array-select form-control form-select"
+                aria-label="example"
+              >
+                <option value="default" selected>동 선택</option>
+                <option
+                  v-for="(item, index) in dong"
+                  :key="index"
+                  :value="item.dongCode"
+                >
+                  {{ item.dongName }}
+                </option>
+              </select>
+            </fieldset>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-6">
+            <fieldset>
+              <select
+                v-model="selectType"
+                @change="onTypeChange"
+                class="array-select form-control form-select"
+                aria-label="example"
+              >
+                <option value="default" selected>종류 선택</option>
+                <option
+                  v-for="(item, index) in type"
+                  :key="index"
+                  :value="item.typeName"
+                >
+                  {{ item.typeName }}
+                </option>
+              </select>
+            </fieldset>
+          </div>
+        </div>
+        <div v-if="visible" id="showList" class="card p-0 bg-secondary">
+          <div class="bg-white mb-2">
+            <div class="px-3">
+              <div>
+                <h4 class="m-0">{{ types[curIndex].name }}</h4>
+              </div>
+              <div class="border-bottom d-flex py-2">
+                <div class="text-secondary w-25">주소</div>
+                <div>
+                  {{ types[curIndex].sidoname }}
+                  {{ types[curIndex].sigunguname }}
+                </div>
+              </div>
+              <div class="border-bottom d-flex py-2">
+                <div class="text-secondary w-25">도로명 주소</div>
+                <div>{{ types[curIndex].doroname }}</div>
+              </div>
+              <div class="border-bottom d-flex py-2">
+                <div class="text-secondary w-25">유형</div>
+                <div>{{ types[curIndex].type }}</div>
+              </div>
             </div>
-          </div>
-          <div class="border-bottom d-flex py-2">
-            <div class="text-secondary w-25">도로명 주소</div>
-            <div>{{ types[curIndex].doroname }}</div>
-          </div>
-          <div class="border-bottom d-flex py-2">
-            <div class="text-secondary w-25">유형</div>
-            <div>{{ types[curIndex].type }}</div>
           </div>
         </div>
       </div>
@@ -290,4 +298,30 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+#wrapper {
+  position: relative;
+}
+#searchBox {
+  position: absolute;
+  top: 20px;
+  /* bottom : 10px; */
+  left: 20px;
+  right: 20px;
+  width: 470px;
+  /* height: 400px; */
+  padding: 10px;
+  z-index: 100;
+  /* background-color:rgba(255, 244, 244, 0.8); */
+  /* opacity: 0.5; */
+  background-color: rgba(255, 255, 255, 0.7);
+
+  overflow-y: auto;
+}
+#showList {
+  overflow-y: scroll;
+  max-height: 60vh;
+  z-index: 100;
+  background-color: rgba(255, 244, 244, 0.6);
+}
+</style>

@@ -6,7 +6,11 @@
     <b-row>
       <b-col></b-col>
       <b-col cols="10">
-        <b-table-simple hover responsive style="background-color: khaki">
+        <b-table-simple
+          hover
+          responsive
+          style="background-color: blanchedalmond"
+        >
           <b-thead head-variant="dark">
             <b-tr>
               <b-th>글번호</b-th>
