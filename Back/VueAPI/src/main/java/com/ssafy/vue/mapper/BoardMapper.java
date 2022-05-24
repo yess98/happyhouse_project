@@ -9,8 +9,8 @@ import com.ssafy.vue.dto.Board;
 public interface BoardMapper {
 	public List<Board> selectBoard();
 	public Board selectBoardByNo(int articleno);
-	public void updateHit(int articleno);
 	public int insertBoard(Board board);
 	public int updateBoard(Board board);
 	public int deleteBoard(int articleno);
+	public int updateHit(int aritcleno);
 }
