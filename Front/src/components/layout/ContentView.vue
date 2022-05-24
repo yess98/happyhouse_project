@@ -9,10 +9,10 @@
         >
           <h1>
             HappyHouse
-            <h4 style="display: inline">with pets</h4>
+            <h3 style="display: inline">with ssafy</h3>
           </h1>
-          <h2>나와 반려동물이 만족하는 집을 찾으려면?</h2>
-          <h2>매물 가격을 비교하여 집을 찾을 수 있습니다!</h2>
+          <h2>여러가지의 조건을 참고해</h2>
+          <h2>최적의 조건에 맞는 매물을 찾을 수 있습니다!</h2>
         </b-col>
         <b-col
           class="col-lg-6 order-1 order-lg-2 hero-img"
@@ -33,7 +33,7 @@
 #intro {
   width: 100%;
   height: 70vh;
-  background: #6abea7;
+  background: #ffcc99;
 }
 #intro .container {
   padding-top: 72px;
@@ -44,10 +44,10 @@ h4 {
   font-size: 48px;
   font-weight: 700;
   line-height: 56px;
-  color: #fff;
+  color: black;
 }
 #intro h2 {
-  color: rgba(255, 255, 255, 0.6);
+  color: black;
   margin: 0.5em 0;
   font-size: 24px;
 }

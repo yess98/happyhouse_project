@@ -20,7 +20,11 @@
           <b-nav-item href="#"
             ><router-link :to="{ name: 'instagram' }" class="link"
               ><p class="h5 mb-2">
-                <b-icon icon="newspaper" font-scale="1.0"></b-icon>
+                <b-icon
+                  variant="dark"
+                  icon="newspaper"
+                  font-scale="1.0"
+                ></b-icon>
                 부동산 News
               </p></router-link
             ></b-nav-item
@@ -28,7 +32,11 @@
           <b-nav-item href="#"
             ><router-link :to="{ name: 'apt' }" class="link"
               ><p class="h5 mb-2">
-                <b-icon icon="house-fill" font-scale="1.0"></b-icon>
+                <b-icon
+                  variant="dark"
+                  icon="house-fill"
+                  font-scale="1.0"
+                ></b-icon>
                 아파트정보
               </p></router-link
             ></b-nav-item
@@ -36,7 +44,11 @@
           <b-nav-item href="#"
             ><router-link :to="{ name: 'sanggwon' }" class="link"
               ><p class="h5 mb-2">
-                <b-icon icon="house-fill" font-scale="1.0"></b-icon>
+                <b-icon
+                  icon="house-fill"
+                  variant="dark"
+                  font-scale="1.0"
+                ></b-icon>
                 상권정보
               </p></router-link
             ></b-nav-item
@@ -44,7 +56,7 @@
           <b-nav-item href="#"
             ><router-link :to="{ name: 'board' }" class="link"
               ><p class="h5 mb-2">
-                <b-icon icon="journal" font-scale="1.0"></b-icon>
+                <b-icon variant="dark" icon="journal" font-scale="1.0"></b-icon>
                 게시판
               </p></router-link
             ></b-nav-item
@@ -52,7 +64,11 @@
           <b-nav-item href="#"
             ><router-link :to="{ name: 'todo' }" class="link"
               ><p class="h5 mb-2">
-                <b-icon icon="calendar-check" font-scale="1.0"></b-icon>
+                <b-icon
+                  icon="calendar-check"
+                  variant="dark"
+                  font-scale="1.0"
+                ></b-icon>
                 TodoList
               </p></router-link
             ></b-nav-item
@@ -67,19 +83,17 @@
           >
         </b-navbar-nav>
         <b-navbar-nav class="ml-auto" v-if="userInfo">
-          <b-nav-item class="align-self-center"
+          <b-nav-item class="link align-self-center"
             ><b-avatar
-              variant="primary"
+              variant="dark"
               v-text="userInfo ? userInfo.userid.charAt(0).toUpperCase() : ''"
             ></b-avatar
             >{{ userInfo.username }}({{ userInfo.userid }})님
             환영합니다.</b-nav-item
           >
-          <b-nav-item class="align-self-center"
-            ><router-link
-              :to="{ name: 'mypage' }"
-              class="link align-self-center"
-              ><p class="h5 mb-2">내정보보기</p></router-link
+          <b-nav-item class="link align-self-center">
+            <router-link :to="{ name: 'mypage' }"
+              >내정보보기</router-link
             ></b-nav-item
           >
           <b-nav-item
@@ -95,7 +109,8 @@
             </template>
             <b-dropdown-item href="#"
               ><router-link :to="{ name: 'signUp' }" class="link"
-                ><b-icon icon="person-circle"></b-icon> 회원가입</router-link
+                ><b-icon icon="person-circle"></b-icon>
+                <p>회원가입</p></router-link
               ></b-dropdown-item
             >
             <b-dropdown-item href="#"
@@ -135,4 +150,15 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+* {
+  text-decoration: none;
+}
+p {
+  color: black;
+}
+router-link:hover {
+  color: black;
+  text-align: none;
+}
+</style>

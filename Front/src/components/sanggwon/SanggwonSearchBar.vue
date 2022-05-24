@@ -3,14 +3,11 @@
     <div id="wrapper">
       <div id="map" style="width: 100%; height: 95vh"></div>
       <div id="searchBox" class="card">
-        <div
-          class="pb-2 d-flex justify-content-evenly"
-          style="width: 100%; height: 10vh"
-        >
+        <div class="pb-2 d-flex justify-content-evenly" style="width: 100%">
           <div class="btn-group">
             <button type="button" class="btn btn-primary">서울시</button>
           </div>
-          <div class="col-lg-4 col-md-6 col-sm-6">
+          <div class="col-lg-3 col-md-6 col-sm-6">
             <fieldset>
               <select
                 v-model="selectGuName"
@@ -29,7 +26,7 @@
               </select>
             </fieldset>
           </div>
-          <div class="col-lg-4 col-md-6 col-sm-6">
+          <div class="col-lg-3 col-md-6 col-sm-6">
             <fieldset>
               <select
                 v-model="selectDongName"
@@ -72,7 +69,7 @@
           <div class="bg-white mb-2">
             <div class="px-3">
               <div>
-                <h4 class="m-0">{{ types[curIndex].name }}</h4>
+                <h1 class="m-0">{{ types[curIndex].name }}</h1>
               </div>
               <div class="border-bottom d-flex py-2">
                 <div class="text-secondary w-25">주소</div>
@@ -308,7 +305,7 @@ export default {
   /* bottom : 10px; */
   left: 20px;
   right: 20px;
-  width: 470px;
+  width: 500px;
   /* height: 400px; */
   padding: 10px;
   z-index: 100;

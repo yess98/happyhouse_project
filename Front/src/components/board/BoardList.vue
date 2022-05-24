@@ -1,5 +1,5 @@
 <template>
-  <b-container class="bv-example-row mt-3">
+  <b-container>
     <!-- <b-row>
       <b-col>
         <b-alert show><h3>글목록</h3></b-alert>

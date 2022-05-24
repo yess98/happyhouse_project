@@ -1,5 +1,5 @@
 <template>
-  <b-container class="bv-example-row mt-3 text-center">
+  <b-container>
     <h3 class="underline-hotpink">
       <b-icon icon="journals"></b-icon> Board Service
     </h3>

@@ -22,22 +22,16 @@ export default {
 
 <style>
 body {
-  font-family: "Jua", sans-serif;
   color: #444444;
 }
 a {
-  color: #47b2e4;
+  color: black;
 }
 a:hover {
-  color: #73c5eb;
+  color: black;
   text-decoration: none;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Jua", sans-serif;
+* {
+  text-decoration: none;
 }
 </style>

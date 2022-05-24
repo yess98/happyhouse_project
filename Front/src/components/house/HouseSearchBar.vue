@@ -101,8 +101,9 @@
           <div class="bg-white mb-2">
             <div class="px-3">
               <div>
-                <h4 class="m-0">{{ apt[curIndex].aptName }}</h4>
+                <h1 class="m-0">{{ apt[curIndex].aptName }}</h1>
               </div>
+              <br />
               <div class="border-bottom d-flex py-2">
                 <div class="text-secondary w-25">주소</div>
                 <div>
@@ -345,19 +346,15 @@ export default {
 #wrapper {
   position: relative;
 }
+
 #searchBox {
   position: absolute;
   top: 20px;
-  /* bottom : 10px; */
   left: 20px;
-  width: 400px;
-  /* height: 400px; */
+  width: 500px;
   padding: 10px;
   z-index: 100;
-  /* background-color:rgba(255, 244, 244, 0.8); */
-  /* opacity: 0.5; */
   background-color: rgba(255, 255, 255, 0.7);
-
   overflow-y: auto;
 }
 #showList {

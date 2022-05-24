@@ -6,12 +6,12 @@
         <hr class="my-5" />
         <b-row>
           <b-col class="col-lg-4 col-md-6 footer-contact">
-            <h3>백태훈</h3>
-            <p><strong>Email:</strong> whiteburnout@gmail.com<br /></p>
+            <h3>양은서</h3>
+            <p><strong>Email:</strong> diddmstj980914@gmail.com<br /></p>
             <div class="social-links mt-3">
               <b-row>
                 <b-col class="col-lg-2">
-                  <a href="https://github.com/whiteburnout" class="github"
+                  <a href="https://github.com/yess98" class="github"
                     ><box-icon
                       color="white"
                       type="logo"
@@ -50,44 +50,28 @@
             <div class="social-links mt-3">
               <b-row>
                 <b-col class="col-lg-2">
-                  <box-icon
-                    type="logo"
-                    name="spring-boot"
-                    size="md"
-                    color="#327160"
-                  ></box-icon>
+                  <box-icon type="logo" name="spring-boot" size="md"></box-icon>
                 </b-col>
                 <b-col class="my-auto">Spring Boot</b-col>
               </b-row>
 
               <b-row>
                 <b-col class="col-lg-2">
-                  <box-icon
-                    type="logo"
-                    name="vuejs"
-                    size="md"
-                    color="#327160"
-                  ></box-icon>
+                  <box-icon type="logo" name="vuejs" size="md"></box-icon>
                 </b-col>
                 <b-col class="my-auto">Vue.js</b-col>
               </b-row>
 
               <b-row>
                 <b-col class="col-lg-2">
-                  <box-icon
-                    name="bootstrap"
-                    type="logo"
-                    size="md"
-                    color="#327160"
-                  ></box-icon>
+                  <box-icon name="bootstrap" type="logo" size="md"></box-icon>
                 </b-col>
                 <b-col class="my-auto">Bootstrap</b-col>
               </b-row>
 
               <b-row>
                 <b-col class="col-lg-2">
-                  <box-icon name="map" type="solid" size="md" color="#327160">
-                  </box-icon>
+                  <box-icon name="map" type="solid" size="md"></box-icon>
                 </b-col>
                 <b-col class="my-auto">Kakao map</b-col>
               </b-row>
@@ -99,7 +83,7 @@
 
     <div class="container footer-bottom clearfix">
       <div class="copyright">
-        &copy; Copyright <strong><span>백태훈 & 엄재웅</span></strong
+        &copy; Copyright <strong><span>양은서 & 배현중</span></strong
         >. All Rights Reserved
       </div>
       <div class="credits">
@@ -122,7 +106,7 @@ export default {};
 <style>
 #footer {
   font-size: 14px;
-  background: #4baa91;
+  background: black;
 }
 #footer .footer-top {
   padding: 60px 0 30px 0;
@@ -138,19 +122,18 @@ export default {};
   line-height: 1;
   text-transform: uppercase;
   font-weight: 600;
-  color: #37517e;
+  color: black;
 }
 #footer .footer-top .footer-contact p {
   font-size: 14px;
   line-height: 24px;
   margin-bottom: 0;
-  font-family: "Jost", sans-serif;
-  color: #5e5e5e;
+  color: black;
 }
 #footer .footer-top h4 {
   font-size: 16px;
   font-weight: bold;
-  color: #37517e;
+  color: black;
   position: relative;
   padding-bottom: 12px;
 }
@@ -164,7 +147,7 @@ export default {};
 }
 #footer .footer-top .footer-links ul i {
   padding-right: 2px;
-  color: #47b2e4;
+  color: black;
   font-size: 18px;
   line-height: 1;
 }
@@ -177,19 +160,19 @@ export default {};
   padding-top: 0;
 }
 #footer .footer-top .footer-links ul a {
-  color: #777777;
+  color: black;
   transition: 0.3s;
   display: inline-block;
   line-height: 1;
 }
 #footer .footer-top .footer-links ul a:hover {
   text-decoration: none;
-  color: #5e6973;
+  color: black;
 }
 #footer .footer-top .social-links a {
   font-size: 18px;
   display: inline-block;
-  background: #4baa91;
+  background: black;
   color: #fff;
   line-height: 1;
   padding: 8px 0;
@@ -201,7 +184,7 @@ export default {};
   transition: 0.3s;
 }
 #footer .footer-top .social-links a:hover {
-  background: #209dd8;
+  background: black;
   color: #fff;
   text-decoration: none;
 }
