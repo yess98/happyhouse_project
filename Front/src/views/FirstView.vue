@@ -97,20 +97,12 @@
               class="myDataTable table align-middle table-bordered mb-0 custom-table nowrap dataTable"
             >
               <tbody>
-<<<<<<< HEAD
                 <router-link
                   :to="{
                     name: 'boardDetail',
                     params: { articleno: articleno },
                   }"
                   >{{ subject }}</router-link
-=======
-                <tr
-                  class="cursor-pointer"
-                  @click="noticeBoardDetail(item.articleno)"
-                  v-for="(item, index) in noticeList"
-                  :key="index"
->>>>>>> d9a39fa5cfc5eb94e473916b53b30e65d954a39e
                 >
               </tbody>
             </table>

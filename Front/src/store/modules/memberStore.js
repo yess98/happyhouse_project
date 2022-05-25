@@ -22,6 +22,7 @@ const memberStore = {
       state.isLoginError = isLoginError;
     },
     SET_USER_INFO: (state, userInfo) => {
+      console.log(userInfo);
       state.isLogin = true;
       state.userInfo = userInfo;
     },
@@ -31,8 +32,10 @@ const memberStore = {
       await login(
         user,
         (response) => {
+          console.log(response);
           if (response.data.message === "success") {
             let token = response.data["access-token"];
+            console.log(token);
             commit("SET_IS_LOGIN", true);
             commit("SET_IS_LOGIN_ERROR", false);
             sessionStorage.setItem("access-token", token);

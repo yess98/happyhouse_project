@@ -39,18 +39,18 @@ const routes = [
       {
         path: "singin",
         name: "signIn",
-        component: () => import("@/components/user/MemberLogin.vue"),
+        component: () => import("@/components/user/MemberLogin1.vue"),
       },
       {
         path: "singup",
         name: "signUp",
-        component: () => import("@/components/user/MemberRegister.vue"),
+        component: () => import("@/components/user/MemberRegister1.vue"),
       },
       {
         path: "mypage",
         name: "mypage",
         beforeEnter: onlyAuthUser,
-        component: () => import("@/components/user/MemberMyPage.vue"),
+        component: () => import("@/components/user/MemberMyPage1.vue"),
       },
       {
         path: "usermodify",

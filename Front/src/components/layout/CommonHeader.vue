@@ -18,7 +18,6 @@
       <div class="row">
         <div class="col-xl-8 col-lg-7 col-md-12">
           <div class="welcome-text mb-4">
-            <h1 class="fs-3 mb-1">{{ name }}</h1>
             <!-- <p class="fs-6 text-muted">{{ desc }}</p> -->
           </div>
         </div>
