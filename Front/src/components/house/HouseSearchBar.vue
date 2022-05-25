@@ -3,10 +3,7 @@
     <div id="wrapper">
       <div id="map" style="width: 100%; height: 100vh"></div>
       <div id="searchBox" class="card">
-        <div
-          class="p-2"
-          style="width: 100%; height: 10vh; background-color: blanchedalmond"
-        >
+        <div class="p-2">
           <div class="d-flex">
             <i class="fa fa-search"></i>
             <h6 class="ps-2">검색 방법을 선택하세요</h6>
@@ -99,20 +96,24 @@
         </div>
         <div v-if="visible" id="showList" class="card p-0 bg-secondary">
           <div class="bg-white mb-2">
-            <div class="px-3">
+            <div
+              class="p-3 border-bottom d-flex justify-content-between align-items-center"
+            >
               <div>
-                <h1 class="m-0">{{ apt[curIndex].aptName }}</h1>
+                <h4 class="m-0">{{ apt[curIndex].aptName }}</h4>
               </div>
               <br />
-              <div class="border-bottom d-flex py-2">
-                <div class="text-secondary w-25">주소</div>
-                <div>
-                  {{ apt[curIndex].dongName }} {{ apt[curIndex].jibun }}
+              <div class="px-3">
+                <div class="border-bottom d-flex py-2">
+                  <div class="text-secondary w-25">주소</div>
+                  <div>
+                    {{ apt[curIndex].dongName }} {{ apt[curIndex].jibun }}
+                  </div>
                 </div>
-              </div>
-              <div class="d-flex py-2">
-                <div class="text-secondary w-25">건축년도</div>
-                <div>{{ apt[curIndex].buildYear }}</div>
+                <div class="d-flex py-2">
+                  <div class="text-secondary w-25">건축년도</div>
+                  <div>{{ apt[curIndex].buildYear }}</div>
+                </div>
               </div>
             </div>
           </div>

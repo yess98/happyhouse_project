@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="wrapper">
-      <div id="map" style="width: 100%; height: 95vh"></div>
+      <div id="map" style="width: 100%; height: 100vh"></div>
       <div id="searchBox" class="card">
         <div class="pb-2 d-flex justify-content-evenly" style="width: 100%">
           <div class="btn-group">
@@ -69,7 +69,7 @@
           <div class="bg-white mb-2">
             <div class="px-3">
               <div>
-                <h1 class="m-0">{{ types[curIndex].name }}</h1>
+                <h4 class="m-0">{{ types[curIndex].name }}</h4>
               </div>
               <div class="border-bottom d-flex py-2">
                 <div class="text-secondary w-25">주소</div>
@@ -135,7 +135,7 @@ export default {
           icon: "success",
         });
       } else {
-        this.$swal(`${this.selectDongName}에 등록된 건물 정보가 없습니다.`, {
+        this.$swal(`선택한 지역에 등록된 건물 정보가 없습니다.`, {
           icon: "error",
         });
       }
@@ -314,11 +314,5 @@ export default {
   background-color: rgba(255, 255, 255, 0.7);
 
   overflow-y: auto;
-}
-#showList {
-  overflow-y: scroll;
-  max-height: 60vh;
-  z-index: 100;
-  background-color: rgba(255, 244, 244, 0.6);
 }
 </style>
