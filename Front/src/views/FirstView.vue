@@ -99,7 +99,7 @@
               <tbody>
                 <tr
                   class="cursor-pointer"
-                  @click="noticeBoardDetail(item.noticeId)"
+                  @click="noticeBoardDetail(item.articleno)"
                   v-for="(item, index) in noticeList"
                   :key="index"
                 >
@@ -163,6 +163,7 @@ export default {
       .then(({ data }) => {
         console.log(data);
         this.noticeList = data;
+        console.log(data);
       })
       .catch((error) => {
         // console.log("Main: error ");
@@ -200,7 +201,7 @@ export default {
 }
 a,
 td {
-  font-size: 15px;
+  font-size: 1px;
   font-weight: bold;
 }
 </style>

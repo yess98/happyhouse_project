@@ -22,7 +22,7 @@
         </button>
         <router-link
           class="btn btn-sm btn-primary float-end mt-2"
-          to="/board/notice/modify"
+          to="{ name: 'boardModify' }"
         >
           수정
         </router-link>

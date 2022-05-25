@@ -84,7 +84,7 @@ const routes = [
         component: () => import("@/components/board/BoardDetail1.vue"),
       },
       {
-        path: "modify/:articleno",
+        path: "modify",
         name: "boardModify",
         beforeEnter: onlyAuthUser,
         component: () => import("@/components/board/BoardModify.vue"),
@@ -100,7 +100,7 @@ const routes = [
     path: "/house",
     name: "house",
     beforeEnter: onlyAuthUser,
-    component: () => import("@/views/HouseView.vue"),
+    component: () => import("@/components/house/HouseSearchBar.vue"),
   },
   {
     path: "/todo",
@@ -111,12 +111,12 @@ const routes = [
   {
     path: "/apt",
     name: "apt",
-    component: () => import("@/views/AptView.vue"),
+    component: () => import("@/components/house/HouseSearchBar.vue"),
   },
   {
     path: "/sanggwon",
     name: "sanggwon",
-    component: () => import("@/views/SanggwonView.vue"),
+    component: () => import("@/components/sanggwon/SanggwonSearchBar.vue"),
   },
   {
     path: "/userlist",
