@@ -1,5 +1,8 @@
 <template>
-  <div class="navbar navbar-expand-lg sticky-top py-md-2 border-bottom">
+  <div
+    class="navbar navbar-expand-lg sticky-top py-md-2 border-bottom"
+    style="background-color: beige"
+  >
     <div class="container">
       <div class="left d-flex">
         <button
