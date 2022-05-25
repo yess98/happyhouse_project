@@ -194,6 +194,7 @@ export default {
       "houses",
       "apt",
       "dealinfo",
+      "fromMainKeyword",
     ]),
     // sidos() {
     //   return this.$store.state.sidos;
@@ -201,6 +202,13 @@ export default {
   },
   created() {
     this.initSearchBox();
+    if (this.fromMainKeyword) {
+      console.log("yes");
+      this.keyword = this.fromMainKeyword;
+      this.CLEAR_KEYWORD();
+      this.searchType = "K";
+      this.onKeywordSearch();
+    }
   },
   mounted() {
     if (window.kakao && window.kakao.maps) {
@@ -229,6 +237,7 @@ export default {
       "CLEAR_GUGUN_LIST",
       "CLEAR_DONG_LIST",
       "CLEAR_APT_LIST",
+      "CLEAR_KEYWORD",
     ]),
 
     initMap() {

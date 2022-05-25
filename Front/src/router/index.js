@@ -2,8 +2,8 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 // import HomeView from "../views/HomeView.vue";
 import store from "@/store/index.js";
-import MainView from "@/components/MainView.vue";
-
+// import MainView from "@/components/MainView.vue";
+import MainView from "@/views/FirstView.vue";
 Vue.use(VueRouter);
 
 // https://router.vuejs.org/kr/guide/advanced/navigation-guards.html

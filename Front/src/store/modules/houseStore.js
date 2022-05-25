@@ -22,9 +22,16 @@ const houseStore = {
     clickLine: null,
     distanceOverlay: null,
     dots: null,
+    fromMainKeyword: null,
   },
   getters: {},
   mutations: {
+    CLEAR_KEYWORD(state) {
+      state.fromMainKeyword = "";
+    },
+    SET_KEYWORD: (state, keyword) => {
+      state.fromMainKeyword = keyword;
+    },
     SET_GUGUN_LIST: (state, guguns) => {
       state.gu = guguns;
     },
