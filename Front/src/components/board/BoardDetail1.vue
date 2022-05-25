@@ -15,14 +15,16 @@
           >목록</router-link
         >
         <button
+          v-if="userInfo.userid === userName"
           class="btn btn-sm btn-danger float-end ms-2 mt-2"
           @click="deleteNotice(noticeId)"
         >
           삭제
         </button>
         <router-link
+          v-if="userInfo.userid === userName"
           class="btn btn-sm btn-primary float-end mt-2"
-          to="{ name: 'boardModify' }"
+          :to="{ name: 'boardModify', params: { articleno: noticeId } }"
         >
           수정
         </router-link>
@@ -63,11 +65,14 @@
 <script>
 import { mapState } from "vuex";
 import http from "@/util/http-common.js";
+const memberStore = "memberStore";
 
 const storeName = "boardStore";
 export default {
   name: "BoardNoticeDetail",
+
   computed: {
+    ...mapState(memberStore, ["userInfo"]),
     ...mapState(storeName, [
       "readCount",
       "noticeId",

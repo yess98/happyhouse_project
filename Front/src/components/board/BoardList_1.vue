@@ -22,7 +22,9 @@
             <td class="w-50 text-start">
               <h6 class="mb-0">
                 <a
-                  @click="boardDetail(article.articleno)"
+                  @click="
+                    update(article.articleno), boardDetail(article.articleno)
+                  "
                   class="color-700 text-decoration-none"
                   >{{ article.subject }}</a
                 >
@@ -57,6 +59,7 @@
 <script>
 import { listArticle, getArticle } from "@/api/board.js";
 import { mapState, mapMutations } from "vuex";
+import http from "@/util/http-common.js";
 
 export default {
   name: "BoardNoticeList",
@@ -84,6 +87,12 @@ export default {
           console.log(error);
         },
       );
+    },
+    update(no) {
+      http
+        .put(`/board/updatehit/${no}`)
+        .then(console.log("조회수변경 성공"))
+        .catch(console.log("조회수변경 실패!"));
     },
   },
   created() {

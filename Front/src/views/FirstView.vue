@@ -97,21 +97,13 @@
               class="myDataTable table align-middle table-bordered mb-0 custom-table nowrap dataTable"
             >
               <tbody>
-<<<<<<< HEAD
-                <router-link
-                  :to="{
-                    name: 'boardDetail',
-                    params: { articleno: articleno },
-                  }"
-                  >{{ subject }}</router-link
-=======
-                <tr
-                  class="cursor-pointer"
-                  @click="noticeBoardDetail(item.articleno)"
-                  v-for="(item, index) in noticeList"
-                  :key="index"
->>>>>>> d9a39fa5cfc5eb94e473916b53b30e65d954a39e
-                >
+                <tr v-for="(article, index) in articles" v-bind:key="index">
+                  <td>
+                    <a @click="boardDetail(article.articleno)">{{
+                      article.subject
+                    }}</a>
+                  </td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -123,6 +115,7 @@
 
 <script>
 import http from "@/util/http-common.js";
+import { listArticle, getArticle } from "@/api/board.js";
 import { mapActions, mapMutations } from "vuex";
 
 export default {
@@ -150,8 +143,21 @@ export default {
     houseOngoingDetail(id) {
       this.onGoingDetail(id);
     },
-    noticeBoardDetail(id) {
-      this.boardDetail(id);
+    ...mapMutations("boardStore", ["SET_BOARD_DETAIL"]),
+    boardDetail(articleno) {
+      let param = articleno;
+      console.log(param);
+      getArticle(
+        param,
+        (response) => {
+          console.log(response.data);
+          this.SET_BOARD_DETAIL(response.data);
+          this.$router.push({ name: "boardDetail" });
+        },
+        (error) => {
+          console.log(error);
+        },
+      );
     },
   },
   created() {
@@ -170,13 +176,29 @@ export default {
       .then(({ data }) => {
         console.log(data);
         this.noticeList = data;
-        console.log(data);
       })
       .catch((error) => {
         // console.log("Main: error ");
         console.log(error);
         this.$swal("서버에 문제가 발생하였습니다.", { icon: "error" });
       });
+
+    let param = {
+      pg: 1,
+      spp: 20,
+      key: null,
+      word: null,
+    };
+    listArticle(
+      param,
+      (response) => {
+        this.articles = response.data;
+        console.log(response.data);
+      },
+      (error) => {
+        console.log(error);
+      },
+    );
   },
 };
 </script>
@@ -208,7 +230,7 @@ export default {
 }
 a,
 td {
-  font-size: 1px;
+  font-size: 15px;
   font-weight: bold;
 }
 </style>
