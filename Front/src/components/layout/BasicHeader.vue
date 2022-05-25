@@ -35,33 +35,34 @@
               공지사항</router-link
             >
           </li>
+          <li
+            class="ms-lg-2 ms-md-1 nav-item"
+            v-if="userInfo && userInfo.userid == `admin`"
+          >
+            <router-link class="nav-link" :to="{ name: 'userlist' }">
+              사용자목록</router-link
+            >
+          </li>
         </ul>
       </div>
       <div class="d-flex align-items-center">
         <div class="d-flex profile-dropdown">
-          <div class="dropdown" v-show="userInfo">
-            <a
-              href="javascript:void(0)"
-              role="button"
-              data-bs-toggle="dropdown"
+          <b-navbar-nav class="ml-auto" v-if="userInfo">
+            <b-nav-item class="link align-self-center">
+              {{ userInfo.username }}({{ userInfo.userid }})님
+              환영합니다.</b-nav-item
             >
-            </a>
-            &nbsp;{{ userInfo.username }}({{ userInfo.userid }}) 님 환영합니다.
-            <ul class="dropdown-menu dropdown-menu-end shadow border-0 m-0 p-3">
-              <li>
-                <router-link
-                  class="dropdown-item py-2 rounded"
-                  :to="{ name: 'mypage' }"
-                  ><i class="fa fa-user me-3"></i>마이 페이지</router-link
-                >
-              </li>
-              <li>
-                <a class="dropdown-item py-2 rounded" @click="onClickLogout"
-                  ><i class="fa fa-info-circle me-3"></i>로그아웃</a
-                >
-              </li>
-            </ul>
-          </div>
+            <b-nav-item class="link align-self-center">
+              <router-link :to="{ name: 'mypage' }"
+                >내정보보기</router-link
+              ></b-nav-item
+            >
+            <b-nav-item
+              class="link align-self-center"
+              @click.prevent="onClickLogout"
+              >로그아웃</b-nav-item
+            >
+          </b-navbar-nav>
           <div class="isNotAuth" v-show="!userInfo">
             <ul class="navbar-nav">
               <li class="ms-lg-2 ms-md-1 nav-item">
@@ -86,7 +87,7 @@
 import { mapMutations, mapState } from "vuex";
 const memberStore = "memberStore";
 export default {
-  name: "NavBar",
+  name: "NaviBar",
   methods: {
     ...mapMutations(memberStore, ["SET_IS_LOGIN", "SET_USER_INFO"]),
     onClickLogout() {

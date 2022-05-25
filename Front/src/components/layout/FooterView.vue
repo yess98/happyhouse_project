@@ -26,12 +26,12 @@
           </b-col>
 
           <b-col class="col-lg-4 col-md-6 footer-contact">
-            <h3>엄재웅</h3>
-            <p><strong>Email:</strong> zzang6535@gmail.com<br /></p>
+            <h3>배현중</h3>
+            <p><strong>Email:</strong> alex950107@gmail.com<br /></p>
             <div class="social-links mt-3">
               <b-row>
                 <b-col class="col-lg-2">
-                  <a href="https://github.com/eomjaewoong" class="github"
+                  <a href="https://github.com/alex950107" class="github"
                     ><box-icon
                       color="white"
                       type="logo"

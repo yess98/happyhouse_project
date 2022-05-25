@@ -81,7 +81,7 @@
                   <td class="text-nowrap">
                     <a
                       class="news-link"
-                      :href="item.link"
+                      :href="item.url"
                       target="_blank"
                       v-html="item.title"
                     >
@@ -97,14 +97,13 @@
               class="myDataTable table align-middle table-bordered mb-0 custom-table nowrap dataTable"
             >
               <tbody>
-                <tr
-                  class="cursor-pointer"
-                  @click="noticeBoardDetail(item.noticeId)"
-                  v-for="(item, index) in noticeList"
-                  :key="index"
+                <router-link
+                  :to="{
+                    name: 'boardDetail',
+                    params: { articleno: articleno },
+                  }"
+                  >{{ subject }}</router-link
                 >
-                  <td>{{ item.subject }}</td>
-                </tr>
               </tbody>
             </table>
           </div>

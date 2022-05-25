@@ -13,7 +13,7 @@ import FooterView from "@/components/layout/FooterView.vue";
 export default {
   name: "MainView",
   components: {
-    // NaviBar,
+    NaviBar,
     ContentView,
     FooterView,
   },
