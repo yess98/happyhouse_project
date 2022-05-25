@@ -91,7 +91,7 @@ export default {
         if (value) {
           if (value === this.userInfo.userpwd) {
             console.log(value);
-            this.$router.push("/myaccount/modifyinfo");
+            this.$router.push({ name: "usermodify" });
           } else {
             this.$swal("비밀번호가 일치하지 않습니다.").then(() =>
               this.modifyInfo(),

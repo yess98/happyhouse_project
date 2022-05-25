@@ -2,15 +2,18 @@
   <div id="app">
     <navi-bar />
     <router-view />
+    <footer-bar />
   </div>
 </template>
 
 <script>
 import NaviBar from "@/components/layout/BasicHeader.vue";
+import FooterBar from "@/components/layout/FooterView.vue";
 export default {
   name: "App",
   components: {
     NaviBar,
+    FooterBar,
   },
 };
 </script>

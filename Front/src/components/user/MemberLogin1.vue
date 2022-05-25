@@ -119,6 +119,7 @@ export default {
           const kakao_account = res.kakao_account;
           console.log(kakao_account);
           alert("로그인 성공 !!");
+          console.log(kakao_account);
           this.login(kakao_account);
         },
       });
@@ -131,19 +132,32 @@ export default {
         email: kakao_account.email,
       };
       http
-        .post("/user/register", loginuser)
+        .get("/user/idcheck/" + loginuser.userid)
         .then(({ data }) => {
           console.log(data);
-          this.confirmKakao(loginuser);
+          this.registerKakao(loginuser);
         })
         .catch(({ error }) => {
           console.log(error);
           this.confirmKakao(loginuser);
         });
     },
+    registerKakao(login_user) {
+      http
+        .post("/user/register", login_user)
+        .then(({ data }) => {
+          console.log(data);
+          this.confirmKakao(login_user);
+        })
+        .catch(({ error }) => {
+          console.log(error);
+          this.confirmKakao(login_user);
+        });
+    },
     async confirmKakao(loginuser) {
       await this.userConfirm(loginuser);
       let token = sessionStorage.getItem("access-token");
+
       if (this.isLogin) {
         await this.getUserInfo(token);
         this.$router.push({ name: "MainView" });

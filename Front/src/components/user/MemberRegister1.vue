@@ -5,9 +5,9 @@
       <div class="d-flex flex-column align-items-center">
         <h2 class="mb-4">Happy House 가입을 환영합니다!</h2>
         <form class="row g-1 p-0 p-md-4 w-100">
-          <table>
+          <table style="width: 100%">
             <tr>
-              <td style="width: 15%" class="px-4 border-top border-dark">
+              <td style="width: 20%" class="px-4 border-top border-dark">
                 <label class="mb-4 form-label" for="username">
                   이름 <span class="text-danger">*</span>
                 </label>
