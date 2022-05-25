@@ -69,19 +69,19 @@ const routes = [
       {
         path: "list",
         name: "boardList",
-        component: () => import("@/components/board/BoardList.vue"),
+        component: () => import("@/components/board/BoardList_1.vue"),
       },
       {
         path: "write",
         name: "boardRegister",
         beforeEnter: onlyAuthUser,
-        component: () => import("@/components/board/BoardRegister.vue"),
+        component: () => import("@/components/board/BoardRegister1.vue"),
       },
       {
-        path: "detail/:articleno",
+        path: "detail",
         name: "boardDetail",
         beforeEnter: onlyAuthUser,
-        component: () => import("@/components/board/BoardDetail.vue"),
+        component: () => import("@/components/board/BoardDetail1.vue"),
       },
       {
         path: "modify/:articleno",

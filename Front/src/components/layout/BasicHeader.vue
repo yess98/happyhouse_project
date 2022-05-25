@@ -23,9 +23,7 @@
       >
         <ul class="navbar-nav">
           <li class="ms-lg-2 ms-md-1 nav-item">
-            <router-link class="nav-link" :to="{ name: 'apt' }"
-              >실거래가</router-link
-            >
+            <router-link class="nav-link" to="/dealInfo">실거래가</router-link>
           </li>
           <li class="ms-lg-2 ms-md-1 nav-item">
             <router-link class="nav-link" :to="{ name: 'sanggwon' }"
