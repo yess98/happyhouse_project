@@ -8,7 +8,7 @@
       <div class="carousel-inner" style="background-color: rgb(54, 54, 54)">
         <div class="carousel-item active">
           <img
-            src="../assets/house.png"
+            src="../assets/houselogo.webp"
             style="object-fit: cover"
             class="d-block w-100"
             height="10%"
@@ -24,7 +24,12 @@
                 class="form-control form-control-lg"
                 placeholder="원하시는 건물명 또는 동을 입력해주세요"
               />
-              <button @click="search" class="btn btn-warning" type="button">
+              <button
+                @click="search"
+                class="btn btn-warning"
+                type="button"
+                style="background-color: #4e7c93; border: 0"
+              >
                 <i class="bi bi-search text-white" style="font-size: 1.5rem">
                 </i>
               </button>
@@ -34,7 +39,7 @@
       </div>
     </div>
     <!-- Main Content -->
-    <div class="body_area py-4 py-md-5" style="background-color: #faf9ea">
+    <div class="body_area py-4 py-md-5" style="background-color: white">
       <div class="container">
         <!-- <div class="row g-3 row-deck">
           <div class="col-lg-3 col-md-6 col-sm-6 text-center">
@@ -75,6 +80,7 @@
             <h4>부동산 관련 뉴스</h4>
             <table
               class="myDataTable table align-middle table-bordered mb-0 custom-table nowrap dataTable"
+              style="border-style: solid; border-width: 10px"
             >
               <tbody>
                 <tr v-for="(item, index) in news" :key="index">
@@ -95,6 +101,7 @@
             <h4>공지사항</h4>
             <table
               class="myDataTable table align-middle table-bordered mb-0 custom-table nowrap dataTable"
+              style="border-style: solid; border-width: 10px; margin-left: 2px"
             >
               <tbody>
                 <tr v-for="(article, index) in articles" v-bind:key="index">
@@ -218,11 +225,10 @@ export default {
 }
 
 .text-re {
-  color: rgb(221, 221, 221);
-  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+  color: black;
   font-size: 80px;
   word-spacing: -25px;
-  letter-spacing: -5px;
+  letter-spacing: 2px;
   font-family: "Merriweather", serif;
 }
 .news-link {

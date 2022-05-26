@@ -17,7 +17,7 @@
         <tbody>
           <tr v-for="(article, index) in articles" v-bind:key="index">
             <td>
-              <span class="badge bg-success">{{ article.articleno }}</span>
+              <span class="badge bg-info">{{ article.articleno }}</span>
             </td>
             <td class="w-50 text-start">
               <h6 class="mb-0">
