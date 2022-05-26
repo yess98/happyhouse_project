@@ -98,7 +98,7 @@
             >
               <tbody>
                 <tr v-for="(article, index) in articles" v-bind:key="index">
-                  <td>
+                  <td v-if="index < 5">
                     <a @click="boardDetail(article.articleno)">{{
                       article.subject
                     }}</a>
