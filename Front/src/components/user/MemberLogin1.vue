@@ -96,6 +96,8 @@ export default {
       if (this.isLogin) {
         await this.getUserInfo(token);
         this.$router.push({ name: "MainView" });
+      } else {
+        this.$swal("로그인 정보가 잘못되었습니다.", { icon: "error" });
       }
     },
     movePage() {
