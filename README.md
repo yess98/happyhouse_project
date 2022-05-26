@@ -8,7 +8,7 @@
 ## 프로젝트 기간
 
 -  2022년 05월 19일 ~ 2022년 05월 26일
-   ![upload](img\일정.png)
+   ![upload](img/일정.png)
    <br><br>
 
 ## 기술 스택
@@ -18,7 +18,7 @@
   <img src="https://img.shields.io/badge/API-Naver_News-6DB33F?style=flat"> 
   <img src="https://img.shields.io/badge/Library-vue_Bootstrap-563D7C?style=flat&logo=bootstrap&logoColor=white"> 
   <img src="https://img.shields.io/badge/Language-Java-007396?style=flat&logo=java&logoColor=white"> 
-  <img src="https://img.shields.io/badge/Language-JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=white"> 
+  <img src="https://img.shields.io/badge/Language-JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=white"><br> 
   <img src="https://img.shields.io/badge/Database-MySql-F80000?style=flat&logo=mysql&logoColor=white"> 
   <img src="https://img.shields.io/badge/Framework-Vue-D22128?style=flat&logo=vue.js&logoColor=white"> 
   <img src="https://img.shields.io/badge/Framework-SpringFramework-6DB33F?style=flat&logo=spring&logoColor=white">
