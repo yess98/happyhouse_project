@@ -53,5 +53,9 @@ public class HouseMapController {
 	public ResponseEntity<List<HouseDealDto>> deal(@RequestParam("houseNo") int code) throws Exception {
 		return new ResponseEntity<List<HouseDealDto>>(haHouseMapService.getHouseDeal(code), HttpStatus.OK);
 	}
+	@GetMapping("/apt/search")
+	public ResponseEntity<List<HouseInfoDto>> search(@RequestParam("search") String keyword) throws Exception {
+		return new ResponseEntity<List<HouseInfoDto>>(haHouseMapService.getHouseBySearch(keyword),HttpStatus.OK);
+	}
 	
 }

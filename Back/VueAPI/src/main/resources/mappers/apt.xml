@@ -23,6 +23,11 @@
 		where left(dongCode, 5) = #{gugun}
 		order by dongName
 	</select>
+	<select id = "getHouseBySearch" parameterType="string" resultType = "houseInfoDto">
+		(select aptcode, aptname,dongname, buildYear,jibun, lat, lng from houseinfo where dongname like concat(#{aptName},"%"))
+		union 
+		(select aptcode,aptname, dongname, buildYear, jibun, lat, lng from houseinfo where aptname like concat(#{dongName},'%')) 
+	</select>
 		
 	<select id="getHouseDeal" parameterType="int" resultType="houseDealDto">
 		select no as house_no, aptCode,
