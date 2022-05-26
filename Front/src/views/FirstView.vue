@@ -125,6 +125,7 @@ export default {
       latestTradeData: [],
       news: [],
       noticeList: [],
+      articles: [],
       keyword: "",
     };
   },
