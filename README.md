@@ -1,29 +1,110 @@
-# HappyHouse_final_서울_12반_양은서_배현중
+# HappyHouse*final*서울*12반*양은서\_배현중
 
-## 진행사항
+## Happy House
 
-### 5월 19일(목) 진행사항
-#### 주제 논의 및 기능 구현 사항 논의 => map marker 추가
-#### 기존의 템플릿 활용방안 논의 => 로그인과 회원가입 기능 구현
+-  SSAFY JAVA트랙 1학기 관통 파이널 프로젝트입니다.
+   <br><br>
 
-### 5월 20일(금) 진행사항
-#### 추가기능 구현 => map에서 다양한 api들을 활용하기 위한 백엔드 구축(병원 정보, 상권 정보)
-#### 추가기능 구현 => 네이버에서 부동산 관련된 뉴스를 크롤링하기 위한 백엔드 구축 
-#### 기본 기능 구현 => 회원가입을 포함한 USER CRUD 기능 구현
-#### 변경 사항 => 템플릿의 CSS 변경
+## 프로젝트 기간
 
-### 5월 21일(토) 진행사항
-#### 수정 사항 => 부동산 관련 뉴스 크롤링하기 위한 백엔드 수정 및 보완
-#### 추가 사항 => 부동산 관련 뉴스 페이지 설계 및 1차 완성
+-  2022년 05월 19일 ~ 2022년 05월 26일
+   ![upload](img\일정.png)
+   <br><br>
 
-### 5월 23일(월) 진행사항
-#### 수정 사항 => 주변 상권정보 및 병원정보 marker, 홈 화면에 뉴스페이지 삽입
-#### 추가 사항 => 홈화면에 wordcloud 입력, 아파트 이름으로 검색기능 추가
+## 기술 스택
 
-### 5월 24일(화) 진행사항
-#### 수정 사항 => 메인화면 및 맵 CSS 변경
-#### 추가 사항 => 소셜 로그인 기능 추가, admin용 페이지 추가
+<p align="center">
+  <img src="https://img.shields.io/badge/API-Kakao_Map-red?style=flat"> 
+  <img src="https://img.shields.io/badge/API-Naver_News-6DB33F?style=flat"> 
+  <img src="https://img.shields.io/badge/Library-vue_Bootstrap-563D7C?style=flat&logo=bootstrap&logoColor=white"> 
+  <img src="https://img.shields.io/badge/Language-Java-007396?style=flat&logo=java&logoColor=white"> 
+  <img src="https://img.shields.io/badge/Language-JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=white"> 
+  <img src="https://img.shields.io/badge/Database-MySql-F80000?style=flat&logo=mysql&logoColor=white"> 
+  <img src="https://img.shields.io/badge/Framework-Vue-D22128?style=flat&logo=vue.js&logoColor=white"> 
+  <img src="https://img.shields.io/badge/Framework-SpringFramework-6DB33F?style=flat&logo=spring&logoColor=white">
+  
+  </p>
+  <br><br>
 
-### 5월 25일(수) 진행사항
-#### 수정 사항 => Vue Template 전체 변경, CSS 추가 및 변경
-#### 추가 사항 => 공지사항 작성 양식 추가, 회원별 사이트 이용 범위 제한
+## 실행화면
+
+### 메인페이지 - 키워드 검색
+
+✅ 동, 아파트이름 중 검색어의 일부 혹은 전체를 입력하면 관련 매물을 마커로 표시
+
+![](img/아파트검색.gif)
+
+![](img/동검색검색.gif)
+
+<br><br>
+
+---
+
+### 메인페이지 - 뉴스 API 및 공지사항
+
+✅ 뉴스API를 활용해 부동산 관련 뉴스리스트를 제시.
+<BR>
+✅ 공지사항의 목록중 가장 최신의 것 5개를 뽑아 메인 화면에서 제시.
+
+![](img/뉴스공지사항.gif)
+
+## <br><br>
+
+---
+
+### 회원가입 및 로그인
+
+✅ 아이디 중복체크를 통해 중복된 회원 아이디로는 가입불가.
+
+![](img/회원가입로그인.gif)
+
+## <br><br>
+
+### 회원정보 수정
+
+✅ 알맞은 비밀번호를 입력한다면 회원 정보의 수정이 가능함.
+
+![](img/회원정보수정.gif)
+
+<br><br>
+
+### 회원탈퇴
+
+✅ 알맞은 비밀번호를 입력한다면 탈퇴가 가능함.
+
+![](img/회원탈퇴.gif)
+<br><br>
+
+---
+
+### 동검색
+
+✅ 지역구, 동을 선택해 해당 지역 매물의 정보를 조회할 수 있음.<br>
+✅ 매물의 위치를 마커를 통해서 확인 할 수 있으며, 마커를 클릭시 보다 자세한 실거래 정보를 조회할 수 있음.
+
+![](img/동선택.gif)
+
+![](img/동검색.gif)
+<br><br>
+
+---
+
+### 상권검색
+
+✅ 지역구, 동을 선택하고 [교육,스포츠,음식] 카테고리중 하나를 선택한다면 해당 상권의 정보를 제시함.<br>
+✅ 상권의 위치를 마커로 지도에 표시함. 마커를 클릭시 보다 자세한 상권의 정보를 확인가능함.
+
+![](img/상권.gif)
+
+## <br><br>
+
+---
+
+### 공지사항
+
+✅ 로그인 한 사용자는 공지사항을 작성할 수 있다. <br>
+✅ 공지사항 리스트를 조회 할 수 있음. (글 번호, 글 작성자, 글제목, 글 조회수, 글 작성일자)<br>
+✅ 글 작성자는 해당 공지사항을 수정할 수 있는 권한이 있음. <br>
+✅ 글 작성자는 해당 공지사항을 삭제할 수 있는 권한이 있음.
+
+![](img/글등록.gif)
